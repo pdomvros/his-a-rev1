@@ -6,17 +6,18 @@
   <title>Ιστορία Α' Γυμνασίου - Επανάληψη</title>
   <style>
     /* Common styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #fbf5ea;
-  margin: 0;
-  padding: 20px;
-  color: #333; /* Αλλαγή από #fbf5ea σε σκούρο γκρι */
-}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fbf5ea;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
 
-h1, h2, h3, h4 {
-  color: #2c3e50; /* Αλλαγή από #fbf5ea σε σκούρο μπλε-γκρι */
-}
+    h1, h2, h3, h4 {
+      color: #2c3e50;
+    }
+    
     section {
       margin-bottom: 40px;
       padding: 20px;
@@ -84,18 +85,43 @@ h1, h2, h3, h4 {
       border-radius: 5px;
       padding: 4px;
     }
+    
+    /* New styles for immediate feedback */
+    .radio-option {
+      display: block;
+      margin-bottom: 8px;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .correct-answer {
+      background-color: #e8f5e9;
+      border: 2px solid #4CAF50;
+    }
+    .wrong-answer {
+      background-color: #ffebee;
+      border: 2px solid #f44336;
+    }
+    
+    /* Style for Pericles options */
+    .pericles-options {
+      display: flex;
+      flex-direction: column;
+    }
+    .pericles-options label {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
 
 <!-- Page 1 - Ιωνικός και Δωρικός Ρυθμός -->
 <section>
-<h4 style="text-align: center; font-size: 1.2em; color: #2c3e50; margin: 20px 0; width: 100%;">
-  1ο Γυμνάσιο Πυλαίας<br>
-  Επανάληψη της Ιστορίας Α' Γυμνασίου<br>
-  Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
-  Διευθυντής 1ου Γυμνασίου Πυλαίας
-</h4>
+  <h4 style="text-align: center; font-size: 1.2em; color: #2c3e50; margin: 20px 0; width: 100%;">
+    1ο Γυμνάσιο Πυλαίας<br>
+    Επανάληψη της Ιστορίας Α' Γυμνασίου<br>
+    Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
+    Διευθυντής 1ου Γυμνασίου Πυλαίας
+  </h4>
 
   <h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
 
@@ -156,7 +182,7 @@ h1, h2, h3, h4 {
     </select>
 
     <select class="dropdown" style="top: 96%; left: 58%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
-      <option>--Επιλογή--</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Βάση">Βάση</option>
+      <option>--Επιλογή--</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυлоβάτης</option><option value="Βάση">Βάση</option>
     </select>
   </div>
 </section>
@@ -294,17 +320,17 @@ h1, h2, h3, h4 {
   </div>
 
 <h3>Επίλεξε τις 5 προτάσεις που δείχνουν γιατί ο Περικλής ήταν μεγάλος ηγέτης:</h3>
-<form class="options" style="display: flex; flex-direction: column;">
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="1" onchange="checkOption(this)"> Ενίσχυσε τη συμμετοχή των φτωχών πολιτών με μισθό.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="2" onchange="checkOption(this)"> Κατάργησε τα δημόσια αξιώματα για μείωση δαπανών.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="3" onchange="checkOption(this)"> Υποστήριξε κοινωνική προστασία για τους άπορους.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="4" onchange="checkOption(this)"> Πλήρωσε το εισιτήριο των φτωχών για το θέατρο.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="5" onchange="checkOption(this)"> Υλοποίησε μεγάλα δημόσια έργα για απασχόληση.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="6" onchange="checkOption(this)"> Εξόρισε πολιτικούς αντιπάλους χωρίς δίκη.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="7" onchange="checkOption(this)"> Παρείχε οικονομική ενίσχυση μόνο στους πλούσιους.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="8" onchange="checkOption(this)"> Διατήρησε τη λειτουργία της δημοκρατίας χωρίς περιορισμούς.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="9" onchange="checkOption(this)"> Έχτισε εργοστάσια όπλων για στρατιωτική κυριαρχία.</label>
-  <label style="margin-bottom: 10px;"><input type="checkbox" name="opt" value="10" onchange="checkOption(this)"> Αλλοίωσε τα νομικά συστήματα προς όφελος της αριστοκρατίας.</label>
+<form class="pericles-options">
+  <label><input type="checkbox" name="opt" value="1" onchange="checkOption(this)"> Ενίσχυσε τη συμμετοχή των φτωχών πολιτών με μισθό.</label>
+  <label><input type="checkbox" name="opt" value="2" onchange="checkOption(this)"> Κατάργησε τα δημόσια αξιώματα για μείωση δαπανών.</label>
+  <label><input type="checkbox" name="opt" value="3" onchange="checkOption(this)"> Υποστήριξε κοινωνική προστασία για τους άπορους.</label>
+  <label><input type="checkbox" name="opt" value="4" onchange="checkOption(this)"> Πλήρωσε το εισιτήριο των φτωχών για το θέατρο.</label>
+  <label><input type="checkbox" name="opt" value="5" onchange="checkOption(this)"> Υλοποίησε μεγάλα δημόσια έργα για απασχόληση.</label>
+  <label><input type="checkbox" name="opt" value="6" onchange="checkOption(this)"> Εξόρισε πολιτικούς αντιπάλους χωρίς δίκη.</label>
+  <label><input type="checkbox" name="opt" value="7" onchange="checkOption(this)"> Παρείχε οικονομική ενίσχυση μόνο στους πλούσιους.</label>
+  <label><input type="checkbox" name="opt" value="8" onchange="checkOption(this)"> Διατήρησε τη λειτουργία της δημοκρατίας χωρίς περιορισμούς.</label>
+  <label><input type="checkbox" name="opt" value="9" onchange="checkOption(this)"> Έχτισε εργοστάσια όπλων για στρατιωτική κυριαρχία.</label>
+  <label><input type="checkbox" name="opt" value="10" onchange="checkOption(this)"> Αλλοίωσε τα νομικά συστήματα προς όφελος της αριστοκρατίας.</label>
 </form>
 <div id="feedback"></div>
 
@@ -381,32 +407,29 @@ h1, h2, h3, h4 {
   <div>
     <h2>1. Επίλεξε το σωστό</h2>
     <p>Ποιος θεσμός είχε την ευθύνη της διοίκησης του στρατού;</p>
-    <input type="radio" name="q1" value="0"> Οι 9 Άρχοντες<br>
-    <input type="radio" name="q1" value="1"> Οι Δέκα Στρατηγοί<br>
-    <input type="radio" name="q1" value="2"> Η Εκκλησία του Δήμου<br>
+    <label class="radio-option"><input type="radio" name="q1" value="0" onchange="checkRadio(this, '1')"> Οι 9 Άρχοντες</label>
+    <label class="radio-option"><input type="radio" name="q1" value="1" onchange="checkRadio(this, '1')"> Οι Δέκα Στρατηγοί</label>
+    <label class="radio-option"><input type="radio" name="q1" value="2" onchange="checkRadio(this, '1')"> Η Εκκλησία του Δήμου</label>
 
     <p>Πόσοι ήταν οι δικαστές της Ηλιαίας;</p>
-    <input type="radio" name="q2" value="0"> 500<br>
-    <input type="radio" name="q2" value="1"> 6000<br>
-    <input type="radio" name="q2" value="2"> 50<br>
+    <label class="radio-option"><input type="radio" name="q2" value="0" onchange="checkRadio(this, '1')"> 500</label>
+    <label class="radio-option"><input type="radio" name="q2" value="1" onchange="checkRadio(this, '1')"> 6000</label>
+    <label class="radio-option"><input type="radio" name="q2" value="2" onchange="checkRadio(this, '1')"> 50</label>
 
     <p>Ποια λειτουργία περιλάμβανε την κάλυψη εξόδων για θεατρικές παραστάσεις;</p>
-    <input type="radio" name="q3" value="0"> Τριηραρχία<br>
-    <input type="radio" name="q3" value="1"> Χορηγία<br>
-    <input type="radio" name="q3" value="2"> Εστίαση<br>
+    <label class="radio-option"><input type="radio" name="q3" value="0" onchange="checkRadio(this, '1')"> Τριηραρχία</label>
+    <label class="radio-option"><input type="radio" name="q3" value="1" onchange="checkRadio(this, '1')"> Χορηγία</label>
+    <label class="radio-option"><input type="radio" name="q3" value="2" onchange="checkRadio(this, '1')"> Εστίαση</label>
 
     <p>Ποιος θεσμός έχασε εξουσίες με τη μεταρρύθμιση του Εφιάλτη;</p>
-    <input type="radio" name="q4" value="0"> Η Εκκλησία του Δήμου<br>
-    <input type="radio" name="q4" value="1"> Ο Άρειος Πάγος<br>
-    <input type="radio" name="q4" value="2"> Οι Δέκα Στρατηγοί<br>
+    <label class="radio-option"><input type="radio" name="q4" value="0" onchange="checkRadio(this, '1')"> Η Εκκλησία του Δήμου</label>
+    <label class="radio-option"><input type="radio" name="q4" value="1" onchange="checkRadio(this, '1')"> Ο Άρειος Πάγος</label>
+    <label class="radio-option"><input type="radio" name="q4" value="2" onchange="checkRadio(this, '1')"> Οι Δέκα Στρατηγοί</label>
 
     <p>Ποια ομάδα πολιτών αναλάμβανε τις λειτουργίες;</p>
-    <input type="radio" name="q5" value="0"> Οι φτωχότεροι πολίτες<br>
-    <input type="radio" name="q5" value="1"> Οι οικονομικά ισχυροί πολίτες<br>
-    <input type="radio" name="q5" value="2"> Οι σύμμαχοι της Αθήνας<br><br>
-
-    <button onclick="checkQuiz()">Υποβολή Απαντήσεων</button>
-    <p id="quizResult" class="quiz-result"></p>
+    <label class="radio-option"><input type="radio" name="q5" value="0" onchange="checkRadio(this, '1')"> Οι φτωχότεροι πολίτες</label>
+    <label class="radio-option"><input type="radio" name="q5" value="1" onchange="checkRadio(this, '1')"> Οι οικονομικά ισχυροί πολίτες</label>
+    <label class="radio-option"><input type="radio" name="q5" value="2" onchange="checkRadio(this, '1')"> Οι σύμμαχοι της Αθήνας</label>
   </div>
 
   <div>
@@ -573,7 +596,7 @@ document.querySelectorAll('#fillblanks select').forEach(sel => {
 // Page 3 functions
 const correctOptions = ['1','3','4','5','8'];
 function checkOption(checkbox) {
-  const labels = document.querySelectorAll('.options label');
+  const labels = document.querySelectorAll('.pericles-options label');
   labels.forEach(label => {
     label.style.border = 'none';
     label.style.background = '';
@@ -616,44 +639,28 @@ document.querySelectorAll('.blanks select').forEach(sel => {
 });
 
 // Page 4 functions
-function checkQuiz() {
-  const correctAnswers = ['1', '1', '1', '1', '1'];
-  let score = 0;
-  let allAnswered = true;
-
-  for (let i = 1; i <= 5; i++) {
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    if (!selected) {
-      allAnswered = false;
-      continue;
-    }
-    
-    const labels = document.querySelectorAll(`input[name="q${i}"]`);
-    labels.forEach(label => {
-      const parentLabel = label.parentElement;
-      parentLabel.style.backgroundColor = '';
-      parentLabel.style.border = '';
-      
-      if (label.checked) {
-        if (label.value === correctAnswers[i-1]) {
-          parentLabel.style.backgroundColor = '#e8f5e9';
-          parentLabel.style.border = '2px solid #4CAF50';
-          score++;
-        } else {
-          parentLabel.style.backgroundColor = '#ffebee';
-          parentLabel.style.border = '2px solid #f44336';
-        }
-      }
-    });
-  }
-
-  const feedback = document.getElementById('quizResult');
-  if (allAnswered) {
-    feedback.textContent = `Σωστές απαντήσεις: ${score}/5`;
-    feedback.style.color = score === 5 ? '#4CAF50' : '#f44336';
+function checkRadio(radioElement, correctValue) {
+  // Remove all styling first
+  const allLabels = document.querySelectorAll(`input[name="${radioElement.name}"]`);
+  allLabels.forEach(input => {
+    input.parentElement.style.backgroundColor = '';
+    input.parentElement.style.border = '';
+  });
+  
+  // Style the selected option
+  if (radioElement.value === correctValue) {
+    radioElement.parentElement.style.backgroundColor = '#e8f5e9';
+    radioElement.parentElement.style.border = '2px solid #4CAF50';
   } else {
-    feedback.textContent = 'Παρακαλώ απαντήστε σε όλες τις ερωτήσεις.';
-    feedback.style.color = '#f44336';
+    radioElement.parentElement.style.backgroundColor = '#ffebee';
+    radioElement.parentElement.style.border = '2px solid #f44336';
+    
+    // Also highlight the correct answer
+    const correctInput = document.querySelector(`input[name="${radioElement.name}"][value="${correctValue}"]`);
+    if (correctInput) {
+      correctInput.parentElement.style.backgroundColor = '#e8f5e9';
+      correctInput.parentElement.style.border = '2px solid #4CAF50';
+    }
   }
 }
 
