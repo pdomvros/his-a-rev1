@@ -2,21 +2,36 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>Ιωνικός και Δωρικός Ρυθμός - Άμεση Ανατροφοδότηση</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ιστορία Α' Γυμνασίου - Επανάληψη</title>
   <style>
+    /* Common styles */
     body {
-      background-color: #fbf5ea;
       font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 20px;
+      background-color: #fbf5ea;
+      margin: 0;
+      padding: 20px;
+      color: #333;
     }
+    h1, h2, h3, h4 {
+      color: #2c3e50;
+    }
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    /* Page 1 styles - Ιωνικός και Δωρικός Ρυθμός */
     .container {
       position: relative;
       display: inline-block;
       width: 1000px;
       height: 750px;
     }
-    img {
+    .container img {
       width: 100%;
       height: 100%;
       display: block;
@@ -26,7 +41,7 @@
       transform: translate(-50%, -50%);
       border: 6px solid transparent;
     }
-    select {
+    .dropdown select {
       padding: 5px;
       font-size: 14px;
     }
@@ -38,85 +53,574 @@
       border-color: #f44336;
       background-color: #ffecec;
     }
+    
+    /* Page 2 and 3 styles - Συμμαχία Δήλου και Περικλής */
+    .matching-item, .blanks p, .options label {
+      margin: 10px 0;
+    }
+    .source {
+      background: #fbf5ea;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .quiz-result, #feedback, #feedback-blanks {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    
+    /* Page 4 styles - Αθηναϊκό πολίτευμα */
+    select, input[type="text"], input[type="radio"] {
+      padding: 5px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .feedback {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      padding: 4px;
+    }
   </style>
 </head>
 <body>
 
-<h4>1ο Γυμνάσιο Πυλαίας<br>
-Επανάληψη της Ιστορίας Α' Γυμνασίου<br>
-Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
-Διευθυντής 1ου Γυμνασίου Πυλαίας</h4>
+<!-- Page 1 - Ιωνικός και Δωρικός Ρυθμός -->
+<section>
+  <h4>1ο Γυμνάσιο Πυλαίας<br>
+  Επανάληψη της Ιστορίας Α' Γυμνασίου<br>
+  Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
+  Διευθυντής 1ου Γυμνασίου Πυλαίας</h4>
 
-<h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
+  <h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
 
-<div class="container">
-  <img src="columns.png" alt="Ιωνικός και Δωρικός Ρυθμός - Καθαρή Εκδοχή">
+  <div class="container">
+    <img src="columns.png" alt="Ιωνικός και Δωρικός Ρυθμός - Καθαρή Εκδοχή">
 
-  <!-- Παράδειγμα ενός dropdown με feedback -->
-  <select class="dropdown" style="top: 5%; left: 45%;" onchange="checkImmediate(this, 'Ιωνικός')">
-    <option>--Ρυθμός--</option>
-    <option value="Ιωνικός">Ιωνικός</option>
-    <option value="Δωρικός">Δωρικός</option>
-  </select>
+    <!-- Παράδειγμα ενός dropdown με feedback -->
+    <select class="dropdown" style="top: 5%; left: 45%;" onchange="checkImmediate(this, 'Ιωνικός')">
+      <option>--Ρυθμός--</option>
+      <option value="Ιωνικός">Ιωνικός</option>
+      <option value="Δωρικός">Δωρικός</option>
+    </select>
 
-  <select class="dropdown" style="top: 5%; left: 55%;" onchange="checkImmediate(this, 'Δωρικός')">
-    <option>--Ρυθμός--</option>
-    <option value="Ιωνικός">Ιωνικός</option>
-    <option value="Δωρικός">Δωρικός</option>
-  </select>
+    <select class="dropdown" style="top: 5%; left: 55%;" onchange="checkImmediate(this, 'Δωρικός')">
+      <option>--Ρυθμός--</option>
+      <option value="Ιωνικός">Ιωνικός</option>
+      <option value="Δωρικός">Δωρικός</option>
+    </select>
 
-  <select class="dropdown" style="top: 18%; left: 42%;" onchange="checkImmediate(this, 'Αέτωμα')">
-    <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
-  </select>
+    <select class="dropdown" style="top: 18%; left: 42%;" onchange="checkImmediate(this, 'Αέτωμα')">
+      <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
+    </select>
 
-  <select class="dropdown" style="top: 30%; left: 42%;" onchange="checkImmediate(this, 'Ζωφόρος')">
-    <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option>
-  </select>
+    <select class="dropdown" style="top: 30%; left: 42%;" onchange="checkImmediate(this, 'Ζωφόρος')">
+      <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option>
+    </select>
 
-  <select class="dropdown" style="top: 42%; left: 42%;" onchange="checkImmediate(this, 'Επιστύλιο')">
-    <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
-  </select>
+    <select class="dropdown" style="top: 42%; left: 42%;" onchange="checkImmediate(this, 'Επιστύλιο')">
+      <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
+    </select>
 
-  <select class="dropdown" style="top: 57%; left: 42%;" onchange="checkImmediate(this, 'Κίονας')">
-    <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option>
-  </select>
+    <select class="dropdown" style="top: 57%; left: 42%;" onchange="checkImmediate(this, 'Κίονας')">
+      <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option>
+    </select>
 
-  <select class="dropdown" style="top: 90%; left: 42%;" onchange="checkImmediate(this, 'Βάση')">
-    <option>--Επιλογή--</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option>
-  </select>
+    <select class="dropdown" style="top: 90%; left: 42%;" onchange="checkImmediate(this, 'Βάση')">
+      <option>--Επιλογή--</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option>
+    </select>
 
-  <select class="dropdown" style="top: 96%; left: 42%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
-    <option>--Επιλογή--</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Βάση">Βάση</option>
-  </select>
+    <select class="dropdown" style="top: 96%; left: 42%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
+      <option>--Επιλογή--</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Βάση">Βάση</option>
+    </select>
 
-  <select class="dropdown" style="top: 18%; left: 58%;" onchange="checkImmediate(this, 'Αέτωμα')">
-    <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
-  </select>
+    <select class="dropdown" style="top: 18%; left: 58%;" onchange="checkImmediate(this, 'Αέτωμα')">
+      <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
+    </select>
 
-  <select class="dropdown" style="top: 30%; left: 58%;" onchange="checkImmediate(this, 'Τρίγλυφα')">
-    <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Τρίγλυφα">Τρίγλυφα</option><option value="Μετόπες">Μετόπες</option>
-  </select>
+    <select class="dropdown" style="top: 30%; left: 58%;" onchange="checkImmediate(this, 'Τρίγλυφα')">
+      <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Τρίγλυφα">Τρίγλυφα</option><option value="Μετόπες">Μετόπες</option>
+    </select>
 
-  <select class="dropdown" style="top: 42%; left: 58%;" onchange="checkImmediate(this, 'Κιονόκρανο')">
-    <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
-  </select>
+    <select class="dropdown" style="top: 42%; left: 58%;" onchange="checkImmediate(this, 'Κιονόκρανο')">
+      <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
+    </select>
 
-  <select class="dropdown" style="top: 57%; left: 58%;" onchange="checkImmediate(this, 'Κίονας')">
-    <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Στυλοβάτης">Στυλοβάτης</option>
-  </select>
+    <select class="dropdown" style="top: 57%; left: 58%;" onchange="checkImmediate(this, 'Κίονας')">
+      <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Στυλοβάτης">Στυλοβάτης</option>
+    </select>
 
-  <select class="dropdown" style="top: 96%; left: 58%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
-    <option>--Επιλογή--</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Βάση">Βάση</option>
-  </select>
-</div>
+    <select class="dropdown" style="top: 96%; left: 58%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
+      <option>--Επιλογή--</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Βάση">Βάση</option>
+    </select>
+  </div>
+</section>
+
+<!-- Page 2 - Η συμμαχία της Δήλου όργανο της Αθηναϊκής Ηγεμονίας -->
+<section>
+  <h1>Η συμμαχία της Δήλου όργανο της Αθηναϊκής Ηγεμονίας</h1>
+
+  <div class="exercise" id="matching">
+    <h2>Αντιστοίχιση</h2>
+    <p>Αντιστοιχίστε κάθε όρο με τον σωστό ορισμό. Επιλέξτε από το μενού. Ο έλεγχος γίνεται άμεσα.</p>
+    <div class="matching-item">
+      <label>1. Έδρα της Συμμαχίας:
+        <select data-answer="Δήλος">
+          <option value="">--επιλέξτε--</option>
+          <option>Σπάρτη</option>
+          <option>Δήλος</option>
+          <option>Αθήνα</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>2. Έτος σύστασης:
+        <select data-answer="478 π.Χ.">
+          <option value="">--επιλέξτε--</option>
+          <option>480 π.Χ.</option>
+          <option>478 π.Χ.</option>
+          <option>470 π.Χ.</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>3. Εισφορά σε χρήματα:
+        <select data-answer="φόρος">
+          <option value="">--επιλέξτε--</option>
+          <option>φόρος</option>
+          <option>μισθοφορία</option>
+          <option>εισιτήριο</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>4. Ταμείο της Συμμαχίας:
+        <select data-answer="Δήλος">
+          <option value="">--επιλέξτε--</option>
+          <option>Αθήνα</option>
+          <option>Δήλος</option>
+          <option>Ακρόπολη</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>5. Θητεία εισπράξεων:
+        <select data-answer="Ελληνοταμία">
+          <option value="">--επιλέξτε--</option>
+          <option>Ταμίας</option>
+          <option>Ελληνοταμία</option>
+          <option>Περικλής</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>6. Μεταφορά ταμείου:
+        <select data-answer="Ακρόπολη">
+          <option value="">--επιλέξτε--</option>
+          <option>Δήλο</option>
+          <option>Ακρόπολη</option>
+          <option>Ναός</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>7. Επίσημη συνάντηση:
+        <select data-answer="συνέδριο">
+          <option value="">--επιλέξτε--</option>
+          <option>συμφωνία</option>
+          <option>συνέδριο</option>
+          <option>σύνοδος</option>
+        </select>
+      </label>
+    </div>
+    <div class="matching-item">
+      <label>8. Ισχυρότερη ναυτική δύναμη:
+        <select data-answer="Αθήνα">
+          <option value="">--επιλέξτε--</option>
+          <option>Σπάρτη</option>
+          <option>Αθήνα</option>
+          <option>Κόρινθος</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="exercise" id="fillblanks">
+    <h2>Συμπληρώστε τα κενά</h2>
+    <p>Συμπληρώστε τα κενά με τη σωστή επιλογή. Ο έλεγχος γίνεται άμεσα.</p>
+    <p>
+      Μετά τη νίκη των <select data-answer="Περσών"><option value="">--επιλέξτε--</option><option>Σπαρτιατών</option><option>Περσών</option><option>Θηβαίων</option></select>,
+      οι πόλεις του Αιγαίου στράφηκαν αρχικά στη <select data-answer="Σπάρτη"><option value="">--επιλέξτε--</option><option>Αθήνα</option><option>Σπάρτη</option><option>Κόρινθο</option></select>,
+      αλλά τελικά, με πρωτοβουλία του <select data-answer="Αριστείδη"><option value="">--επιλέξτε--</option><option>Περικλή</option><option>Αριστείδη</option><option>Εφιάλτη</option></select>,
+      συνάφθηκε Συμμαχία με έδρα τη <select data-answer="Δήλο"><option value="">--επιλέξτε--</option><option>Ακρόπολη</option><option>Δήλο</option><option>Ναύπακτο</option></select>
+      το <select data-answer="478 π.Χ."><option value="">--επιλέξτε--</option><option>480 π.Χ.</option><option>478 π.Χ.</option><option>470 π.Χ.</option></select>.
+    </p>
+    <p>
+      Όλα τα μέλη είχαν από μία <select data-answer="ψήφο"><option value="">--επιλέξτε--</option><option>ψήφο</option><option>δόξα</option><option>εισφορά</option></select>
+      στη συνέλευση, που συνέρχονταν κάθε χρόνο στη Δήλο, και συνέβαλλαν είτε με <select data-answer="πλοία"><option value="">--επιλέξτε--</option><option>πλοία</option><option>δώρα</option><option>στρατεύματα</option></select>
+      είτε με χρηματικό <select data-answer="φόρο"><option value="">--επιλέξτε--</option><option>φόρο</option><option>δάνειο</option><option>δικαίωμα</option></select>.
+    </p>
+    <p>
+      Δέκα «Ελληνοταμίες» συγκέντρωναν τα έσοδα στο ταμείο, έως το 454 π.Χ. που ο <select data-answer="Περικλής"><option value="">--επιλέξτε--</option><option>Κίμων</option><option>Περικλής</option><option>Αριστείδης</option></select>
+      μετέφερε το ταμείο στην <select data-answer="Ακρόπολη"><option value="">--επιλέξτε--</option><option>Δήλο</option><option>Ακρόπολη</option><option>Ναό</option></select>,
+      οπότε το συνέδριο δεν συνήλθε πλέον.
+    </p>
+    <p>
+      Καθώς η αθηναϊκή κυριαρχία γιγαντωνόταν, η Συμμαχία μετετράπη σε όργανο ηγεμονίας. Περίπου <select data-answer="400"><option value="">--επιλέξτε--</option><option>200</option><option>400</option><option>600</option></select>
+      πόλεις εξεγέρθηκαν (Νάξος, Θάσος), τις οποίες καταπνίγει ο <select data-answer="Κίμων"><option value="">--επιλέξτε--</option><option>Αριστείδης</option><option>Εφιάλτης</option><option>Κίμων</option></select>.
+    </p>
+    <div id="feedback-blanks"></div>
+  </div>
+</section>
+
+<!-- Page 3 - Ο Περικλής, ένας μεγάλος ηγέτης -->
+<section>
+  <h1>Ο Περικλής, ένας μεγάλος ηγέτης [Θουκυδίδης Β, 65 (μετ. Άγγ. Βλάχου)]</h1>
+
+  <h2>Πηγή</h2>
+  <div class="source">
+    <p>«Καθιερώνει τη μισθοφορία, ένα είδος οικονομικής ενίσχυσης για τους απορότερους, ώστε να μπορούν, 
+    απερίσπαστοι, να παρακολουθούν τις συνεδριάσεις της Εκκλησίας του Δήμου και να ασκούν τα πολιτικά 
+    τους δικαιώματα. Ακόμη και οι φτωχότεροι είχαν τη δυνατότητα να καταλαμβάνουν πολιτειακά αξιώματα. 
+    Επιπλέον, η Πολιτεία αναπτύσσει θεσμούς κοινωνικής προστασίας και πληρώνει, για τους απόρους, το 
+    αντίτιμο του εισιτηρίου τους για την είσοδό τους στο θέατρο (θεωρικά χρήματα). Ακόμη ο Περικλής 
+    συλλαμβάνει το σχέδιο της ανοικοδόμησης μεγάλων δημόσιων έργων, τα οποία θα προσφέρουν εργασία 
+    σε πολλούς και θα αλλάξουν την όψη της πόλης. Η πόλη της Αθηνάς θα μεταμορφωθεί.»</p>
+  </div>
+
+  <h3>Επίλεξε τις 5 προτάσεις που δείχνουν γιατί ο Περικλής ήταν μεγάλος ηγέτης:</h3>
+  <form class="options">
+    <label><input type="checkbox" name="opt" value="1"> Ενίσχυσε τη συμμετοχή των φτωχών πολιτών με μισθό.</label>
+    <label><input type="checkbox" name="opt" value="2"> Κατάργησε τα δημόσια αξιώματα για μείωση δαπανών.</label>
+    <label><input type="checkbox" name="opt" value="3"> Υποστήριξε κοινωνική προστασία για τους άπορους.</label>
+    <label><input type="checkbox" name="opt" value="4"> Πλήρωσε το εισιτήριο των φτωχών για το θέατρο.</label>
+    <label><input type="checkbox" name="opt" value="5"> Υλοποίησε μεγάλα δημόσια έργα για απασχόληση.</label>
+    <label><input type="checkbox" name="opt" value="6"> Εξόρισε πολιτικούς αντιπάλους χωρίς δίκη.</label>
+    <label><input type="checkbox" name="opt" value="7"> Παρείχε οικονομική ενίσχυση μόνο στους πλούσιους.</label>
+    <label><input type="checkbox" name="opt" value="8"> Διατήρησε τη λειτουργία της δημοκρατίας χωρίς περιορισμούς.</label>
+    <label><input type="checkbox" name="opt" value="9"> Έχτισε εργοστάσια όπλων για στρατιωτική κυριαρχία.</label>
+    <label><input type="checkbox" name="opt" value="10"> Αλλοίωσε τα νομικά συστήματα προς όφελος της αριστοκρατίας.</label>
+  </form>
+  <button onclick="checkOptions()">Υποβολή</button>
+  <div id="feedback"></div>
+
+  <h2>Συμπληρώστε τα κενά</h2>
+  <form class="blanks">
+    <label>1. Ο Περικλής καθιέρωσε τη <select data-answer="μισθοφορία">
+        <option value="">--επιλέξτε--</option>
+        <option>μισθοφορία</option>
+        <option>φορολογία</option>
+        <option>ανταμοιβή</option>
+      </select> για τους φτωχούς.</label>
+    <label>2. Οι φτωχότεροι πολίτες μπορούσαν να συμμετέχουν στην <select data-answer="Εκκλησία">
+        <option value="">--επιλέξτε--</option>
+        <option>Εκκλησία</option>
+        <option>Βουλή</option>
+        <option>Στρατιά</option>
+      </select> του Δήμου.</label>
+    <label>3. Πληρώθηκε το εισιτήριο των φτωχών για το <select data-answer="θέατρο">
+        <option value="">--επιλέξτε--</option>
+        <option>αγορά</option>
+        <option>θέατρο</option>
+        <option>στάδιο</option>
+      </select> (θεωρικά χρήματα).</label>
+    <label>4. Ο Περικλής στήριξε την ανάπτυξη θεσμών <select data-answer="κοινωνικής προστασίας">
+        <option value="">--επιλέξτε--</option>
+        <option>στρατιωτικής ισχύος</option>
+        <option>πολιτικής διαφάνειας</option>
+        <option>κοινωνικής προστασίας</option>
+      </select>.</label>
+    <label>5. Σχεδίασε μεγάλα δημόσια <select data-answer="έργα">
+        <option value="">--επιλέξτε--</option>
+        <option>έργα</option>
+        <option>νόμους</option>
+        <option>οικονομίες</option>
+      </select> για απασχόληση.</label>
+    <label>6. Τα δημόσια έργα άλλαξαν την όψη της <select data-answer="πόλης">
+        <option value="">--επιλέξτε--</option>
+        <option>χώρας</option>
+        <option>πόλης</option>
+        <option>αγοράς</option>
+      </select>.</label>
+    <label>7. Οι πολίτες παρακολουθούσαν τις συνεδριάσεις <select data-answer="απερίσπαστοι">
+        <option value="">--επιλέξτε--</option>
+        <option>απρόθυμοι</option>
+        <option>απερίσπαστοι</option>
+        <option>αδιάφοροι</option>
+      </select>.</label>
+    <label>8. Η μισθοφορία επέτρεπε πολιτική <select data-answer="συμμετοχή">
+        <option value="">--επιλέξτε--</option>
+        <option>ανταρσία</option>
+        <option>συμμετοχή</option>
+        <option>ανυπακοή</option>
+      </select> ανεξαρτήτως οικονομικής κατάστασης.</label>
+    <label>9. Ο Περικλής ενίσχυσε τη δημοκρατία με ίσα <select data-answer="δικαιώματα">
+        <option value="">--επιλέξτε--</option>
+        <option>προνόμια</option>
+        <option>δικαιώματα</option>
+        <option>νόμους</option>
+      </select> για όλους τους πολίτες.</label>
+    <label>10. Τα θεωρικά χρήματα αναφέρονται στην υποστήριξη για είσοδο στο <select data-answer="θέατρο">
+        <option value="">--επιλέξτε--</option>
+        <option>θέατρο</option>
+        <option>σχολείο</option>
+        <option>αγορά</option>
+      </select>.</label>
+  </form>
+  <div id="feedback-blanks"></div>
+</section>
+
+<!-- Page 4 - Η λειτουργία του Αθηναϊκού πολιτεύματος -->
+<section>
+  <h1>Η λειτουργία του Αθηναϊκού πολιτεύματος</h1>
+
+  <div>
+    <h2>1. Επίλεξε το σωστό</h2>
+    <p>Ποιος θεσμός είχε την ευθύνη της διοίκησης του στρατού;</p>
+    <input type="radio" name="q1" value="0"> Οι 9 Άρχοντες<br>
+    <input type="radio" name="q1" value="1"> Οι Δέκα Στρατηγοί<br>
+    <input type="radio" name="q1" value="2"> Η Εκκλησία του Δήμου<br>
+
+    <p>Πόσοι ήταν οι δικαστές της Ηλιαίας;</p>
+    <input type="radio" name="q2" value="0"> 500<br>
+    <input type="radio" name="q2" value="1"> 6000<br>
+    <input type="radio" name="q2" value="2"> 50<br>
+
+    <p>Ποια λειτουργία περιλάμβανε την κάλυψη εξόδων για θεατρικές παραστάσεις;</p>
+    <input type="radio" name="q3" value="0"> Τριηραρχία<br>
+    <input type="radio" name="q3" value="1"> Χορηγία<br>
+    <input type="radio" name="q3" value="2"> Εστίαση<br>
+
+    <p>Ποιος θεσμός έχασε εξουσίες με τη μεταρρύθμιση του Εφιάλτη;</p>
+    <input type="radio" name="q4" value="0"> Η Εκκλησία του Δήμου<br>
+    <input type="radio" name="q4" value="1"> Ο Άρειος Πάγος<br>
+    <input type="radio" name="q4" value="2"> Οι Δέκα Στρατηγοί<br>
+
+    <p>Ποια ομάδα πολιτών αναλάμβανε τις λειτουργίες;</p>
+    <input type="radio" name="q5" value="0"> Οι φτωχότεροι πολίτες<br>
+    <input type="radio" name="q5" value="1"> Οι οικονομικά ισχυροί πολίτες<br>
+    <input type="radio" name="q5" value="2"> Οι σύμμαχοι της Αθήνας<br><br>
+
+    <button onclick="checkQuiz()">Υποβολή Απαντήσεων</button>
+    <p id="quizResult" class="quiz-result"></p>
+  </div>
+
+  <div>
+    <h2>2. Αντιστοίχισε τις Χρονολογίες με τις Μεταρρυθμίσεις</h2>
+    <p>594 π.Χ.: <select class="feedback" onchange="checkSelect(this, '1')">
+      <option value="">--Επιλογή--</option>
+      <option value="0">Περικλής – Ενίσχυση θεσμών</option>
+      <option value="1">Σόλωνας – Κοινωνικές και πολιτικές μεταρρυθμίσεις</option>
+      <option value="2">Εφιάλτης – Αφαίρεση εξουσιών από Άρειο Πάγο</option>
+    </select></p>
+    <p>508/7 π.Χ.: <select class="feedback" onchange="checkSelect(this, '0')">
+      <option value="">--Επιλογή--</option>
+      <option value="0">Κλεισθένης – Δημιουργία Φυλών και Βουλής των 500</option>
+      <option value="1">Σόλωνας – Δικαστικό σύστημα</option>
+      <option value="2">Περικλής – Δημοκρατικές ενισχύσεις</option>
+    </select></p>
+    <p>462 π.Χ.: <select class="feedback" onchange="checkSelect(this, '0')">
+      <option value="">--Επιλογή--</option>
+      <option value="0">Εφιάλτης – Αφαίρεση εξουσιών από Άρειο Πάγο</option>
+      <option value="1">Σόλωνας – Οικονομικές ρυθμίσεις</option>
+      <option value="2">Κλεισθένης – Νέο εκλογικό σύστημα</option>
+    </select></p>
+    <p>5ος αιώνας π.Χ.: <select class="feedback" onchange="checkSelect(this, '1')">
+      <option value="">--Επιλογή--</option>
+      <option value="0">Κλεισθένης – Φυλές</option>
+      <option value="1">Περικλής – Ενίσχυση δημοκρατικών θεσμών</option>
+      <option value="2">Σόλωνας – Ορκωτό δικαστήριο</option>
+    </select></p>
+  </div>
+
+  <div>
+    <h2>3. Συμπλήρωσε με τον κατάλληλο τρόπο</h2>
+
+    <p>Η Ηλιαία αποτελούνταν από 
+      <select class="feedback" onchange="checkSelect(this, '6000')">
+        <option value="">--Επιλογή--</option>
+        <option value="500">500</option>
+        <option value="6000">6000</option>
+        <option value="50">50</option>
+      </select> δικαστές και χωριζόταν σε 
+      <select class="feedback" onchange="checkSelect(this, '10')">
+        <option value="">--Επιλογή--</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+      </select> τμήματα.
+    </p>
+
+    <p>Οι Δέκα Στρατηγοί ήταν υπεύθυνοι για την 
+      <select class="feedback" onchange="checkSelect(this, 'εσωτερική')">
+        <option value="">--Επιλογή--</option>
+        <option value="οικονομική">οικονομική</option>
+        <option value="εξωτερική">εξωτερική</option>
+        <option value="εσωτερική">εσωτερική</option>
+      </select> ασφάλεια της πόλης, τη 
+      <select class="feedback" onchange="checkSelect(this, 'οργάνωση')">
+        <option value="">--Επιλογή--</option>
+        <option value="επίβλεψη">επίβλεψη</option>
+        <option value="οργάνωση">οργάνωση</option>
+        <option value="άσκηση">άσκηση</option>
+      </select> εξωτερικής πολιτικής και τη 
+      <select class="feedback" onchange="checkSelect(this, 'διοίκηση')">
+        <option value="">--Επιλογή--</option>
+        <option value="διοίκηση">διοίκηση</option>
+        <option value="προστασία">προστασία</option>
+        <option value="καθοδήγηση">καθοδήγηση</option>
+      </select> του στόλου.
+    </p>
+
+    <p>Οι λειτουργίες, όπως η 
+      <select class="feedback" onchange="checkSelect(this, 'τριηραρχία')">
+        <option value="">--Επιλογή--</option>
+        <option value="χορηγία">χορηγία</option>
+        <option value="εστίαση">εστίαση</option>
+        <option value="τριηραρχία">τριηραρχία</option>
+      </select> (συντήρηση πλοίου) και η 
+      <select class="feedback" onchange="checkSelect(this, 'χορηγία')">
+        <option value="">--Επιλογή--</option>
+        <option value="εστίαση">εστίαση</option>
+        <option value="χορηγία">χορηγία</option>
+        <option value="γυμνασιαρχία">γυμνασιαρχία</option>
+      </select> (παράσταση), επιβάλλονταν στους 
+      <select class="feedback" onchange="checkSelect(this, 'πλούσιους')">
+        <option value="">--Επιλογή--</option>
+        <option value="πλούσιους">πλούσιους</option>
+        <option value="φτωχούς">φτωχούς</option>
+        <option value="μέτοικους">μέτοικους</option>
+      </select> πολίτες.
+    </p>
+
+    <p>Η Εκκλησία του Δήμου ήταν το 
+      <select class="feedback" onchange="checkSelect(this, 'κυρίαρχο')">
+        <option value="">--Επιλογή--</option>
+        <option value="συμβουλευτικό">συμβουλευτικό</option>
+        <option value="διακοσμητικό">διακοσμητικό</option>
+        <option value="κυρίαρχο">κυρίαρχο</option>
+      </select> σώμα, στο οποίο συμμετείχαν όλοι οι ελεύθεροι πολίτες.
+    </p>
+
+    <p>Η Ηλιαία ήταν ένα 
+      <select class="feedback" onchange="checkSelect(this, 'λαϊκό')">
+        <option value="">--Επιλογή--</option>
+        <option value="μοναρχικό">μοναρχικό</option>
+        <option value="λαϊκό">λαϊκό</option>
+        <option value="εκκλησιαστικό">εκκλησιαστικό</option>
+      </select> δικαστήριο με 6000 μέλη.
+    </p>
+
+    <p>Η Βουλή των 500 προετοίμαζε τα 
+      <select class="feedback" onchange="checkSelect(this, 'προβουλεύματα')">
+        <option value="">--Επιλογή--</option>
+        <option value="διατάγματα">διατάγματα</option>
+        <option value="ψηφίσματα">ψηφίσματα</option>
+        <option value="προβουλεύματα">προβουλεύματα</option>
+      </select> για ψήφιση από την Εκκλησία.
+    </p>
+
+    <p>Ο Άρειος Πάγος δίκαζε κυρίως υποθέσεις 
+      <select class="feedback" onchange="checkSelect(this, 'φόνου')">
+        <option value="">--Επιλογή--</option>
+        <option value="εμπορίου">εμπορίου</option>
+        <option value="κληρονομιάς">κληρονομιάς</option>
+        <option value="φόνου">φόνου</option>
+      </select>.
+    </p>
+
+    <p>Οι Δέκα Στρατηγοί είχαν την ευθύνη της 
+      <select class="feedback" onchange="checkSelect(this, 'διοίκησης')">
+        <option value="">--Επιλογή--</option>
+        <option value="εκλογής">εκλογής</option>
+        <option value="διοίκησης">διοίκησης</option>
+        <option value="συντήρησης">συντήρησης</option>
+      </select> του στρατού και του στόλου.
+    </p>
+  </div>
+</section>
 
 <script>
+// Page 1 functions
 function checkImmediate(selectElement, correctValue) {
   selectElement.classList.remove("correct", "incorrect");
   if (selectElement.value === correctValue) {
     selectElement.classList.add("correct");
   } else {
     selectElement.classList.add("incorrect");
+  }
+}
+
+// Page 2 functions
+document.querySelectorAll('#matching select').forEach(sel => {
+  sel.addEventListener('change', () => {
+    const correct = sel.getAttribute('data-answer');
+    sel.style.border = sel.value === correct ? '3px solid #28a745' : '3px solid #dc3545';
+  });
+});
+
+document.querySelectorAll('#fillblanks select').forEach(sel => {
+  sel.addEventListener('change', () => {
+    const correct = sel.getAttribute('data-answer');
+    sel.style.border = sel.value === correct ? '3px solid #28a745' : '3px solid #dc3545';
+  });
+});
+
+// Page 3 functions
+const correctOptions = ['1','3','4','5','8'];
+function checkOptions() {
+  const selections = Array.from(document.querySelectorAll('input[name="opt"]:checked')).map(i => i.value);
+  const labels = document.querySelectorAll('.options label');
+  labels.forEach(label => {
+    label.style.border = 'none';
+    label.style.background = '';
+  });
+  selections.forEach(val => {
+    const lbl = document.querySelector('input[value="'+val+'"]').parentElement;
+    lbl.style.border = correctOptions.includes(val) ? '3px solid #28a745' : '3px solid #dc3545';
+  });
+  const fb = document.getElementById('feedback');
+  if (selections.length !== correctOptions.length) {
+    fb.textContent = 'Παρακαλώ επίλεξε ακριβώς 5 προτάσεις.';
+    fb.style.color = 'red';
+  } else if (selections.every(v => correctOptions.includes(v))) {
+    fb.textContent = 'Συγχαρητήρια! Επίλεξες όλες τις σωστές απαντήσεις.';
+    fb.style.color = 'green';
+  } else {
+    fb.textContent = 'Κάποιες επιλογές είναι λανθασμένες. Κοίταξε ξανά τις προτάσεις.';
+    fb.style.color = 'red';
+  }
+}
+
+document.querySelectorAll('.blanks select').forEach(sel => {
+  sel.addEventListener('change', () => {
+    const correct = sel.getAttribute('data-answer');
+    if (!sel.value) {
+      sel.style.border = '1px solid #333';
+      return;
+    }
+    sel.style.border = sel.value === correct ? '3px solid #28a745' : '3px solid #dc3545';
+  });
+});
+
+// Page 4 functions
+function checkQuiz() {
+  const correctAnswers = ['1', '1', '1', '1', '1'];
+  let score = 0;
+  for (let i = 1; i <= 5; i++) {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selected && selected.value === correctAnswers[i - 1]) score++;
+  }
+  document.getElementById('quizResult').textContent = `Σωστές απαντήσεις: ${score}/5`;
+}
+
+function checkSelect(element, correctValue) {
+  if (element.value === correctValue) {
+    element.style.border = "2px solid green";
+  } else {
+    element.style.border = "2px solid red";
   }
 }
 </script>
