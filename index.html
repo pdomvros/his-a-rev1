@@ -2,7 +2,7 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>Ιωνικός και Δωρικός Ρυθμός - Quiz</title>
+  <title>Ιωνικός και Δωρικός Ρυθμός - Άμεση Ανατροφοδότηση</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@
     .dropdown {
       position: absolute;
       transform: translate(-50%, -50%);
-      border: 2px solid transparent;
+      border: 3px solid transparent;
     }
     select {
       padding: 5px;
@@ -37,11 +37,6 @@
       border-color: #f44336;
       background-color: #ffecec;
     }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-    }
   </style>
 </head>
 <body>
@@ -51,92 +46,77 @@
 Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
 Διευθυντής 1ου Γυμνασίου Πυλαίας</h4>
 
-
 <h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
 
 <div class="container">
   <img src="columns.png" alt="Ιωνικός και Δωρικός Ρυθμός - Καθαρή Εκδοχή">
 
-  <!-- Dropdown επιλογής ρυθμού -->
-  <select class="dropdown" style="top: 5%; left: 45%;">
+  <!-- Παράδειγμα ενός dropdown με feedback -->
+  <select class="dropdown" style="top: 5%; left: 45%;" onchange="checkImmediate(this, 'Ιωνικός')">
     <option>--Ρυθμός--</option>
     <option value="Ιωνικός">Ιωνικός</option>
     <option value="Δωρικός">Δωρικός</option>
   </select>
 
-  <select class="dropdown" style="top: 5%; left: 55%;">
+  <select class="dropdown" style="top: 5%; left: 55%;" onchange="checkImmediate(this, 'Δωρικός')">
     <option>--Ρυθμός--</option>
     <option value="Ιωνικός">Ιωνικός</option>
     <option value="Δωρικός">Δωρικός</option>
   </select>
 
-  <!-- Ιωνικός ρυθμός -->
-  <select class="dropdown" style="top: 18%; left: 42%;">
+  <select class="dropdown" style="top: 18%; left: 42%;" onchange="checkImmediate(this, 'Αέτωμα')">
     <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
   </select>
 
-  <select class="dropdown" style="top: 30%; left: 42%;">
+  <select class="dropdown" style="top: 30%; left: 42%;" onchange="checkImmediate(this, 'Ζωφόρος')">
     <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option>
   </select>
 
-  <select class="dropdown" style="top: 42%; left: 42%;">
+  <select class="dropdown" style="top: 42%; left: 42%;" onchange="checkImmediate(this, 'Επιστύλιο')">
     <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
   </select>
 
-  <select class="dropdown" style="top: 57%; left: 42%;">
+  <select class="dropdown" style="top: 57%; left: 42%;" onchange="checkImmediate(this, 'Κίονας')">
     <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option>
   </select>
 
-  <select class="dropdown" style="top: 90%; left: 42%;">
+  <select class="dropdown" style="top: 90%; left: 42%;" onchange="checkImmediate(this, 'Βάση')">
     <option>--Επιλογή--</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option>
   </select>
 
-  <select class="dropdown" style="top: 96%; left: 42%;">
+  <select class="dropdown" style="top: 96%; left: 42%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
     <option>--Επιλογή--</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Βάση">Βάση</option>
   </select>
 
-  <!-- Δωρικός ρυθμός -->
-  <select class="dropdown" style="top: 18%; left: 58%;">
+  <select class="dropdown" style="top: 18%; left: 58%;" onchange="checkImmediate(this, 'Αέτωμα')">
     <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
   </select>
 
-  <select class="dropdown" style="top: 30%; left: 58%;">
+  <select class="dropdown" style="top: 30%; left: 58%;" onchange="checkImmediate(this, 'Τρίγλυφα')">
     <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Τρίγλυφα">Τρίγλυφα</option><option value="Μετόπες">Μετόπες</option>
   </select>
 
-  <select class="dropdown" style="top: 42%; left: 58%;">
+  <select class="dropdown" style="top: 42%; left: 58%;" onchange="checkImmediate(this, 'Κιονόκρανο')">
     <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
   </select>
 
-  <select class="dropdown" style="top: 57%; left: 58%;">
+  <select class="dropdown" style="top: 57%; left: 58%;" onchange="checkImmediate(this, 'Κίονας')">
     <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Στυλοβάτης">Στυλοβάτης</option>
   </select>
 
-  <select class="dropdown" style="top: 96%; left: 58%;">
+  <select class="dropdown" style="top: 96%; left: 58%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
     <option>--Επιλογή--</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Βάση">Βάση</option>
   </select>
 </div>
 
-<button onclick="checkAnswers()">Έλεγχος Απαντήσεων</button>
-
 <script>
-function checkAnswers() {
-  const correctAnswers = [
-    "Ιωνικός", "Δωρικός",
-    "Αέτωμα", "Ζωφόρος", "Επιστύλιο", "Κίονας", "Βάση", "Στυλοβάτης",
-    "Αέτωμα", "Τρίγλυφα", "Κιονόκρανο", "Κίονας", "Στυλοβάτης"
-  ];
-
-  const selects = document.querySelectorAll("select");
-
-  selects.forEach((select, index) => {
-    select.classList.remove("correct", "incorrect");
-    if (select.value === correctAnswers[index]) {
-      select.classList.add("correct");
-    } else {
-      select.classList.add("incorrect");
-    }
-  });
+function checkImmediate(selectElement, correctValue) {
+  selectElement.classList.remove("correct", "incorrect");
+  if (selectElement.value === correctValue) {
+    selectElement.classList.add("correct");
+  } else {
+    selectElement.classList.add("incorrect");
+  }
 }
 </script>
 
