@@ -544,48 +544,10 @@ h1, h2, h3, h4 {
   </div>
 </section>
 
-<script>
-// Page 1 functions
-function checkImmediate(selectElement, correctValue) {
-  selectElement.classList.remove("correct", "incorrect");
-  if (selectElement.value === correctValue) {
-    selectElement.classList.add("correct");
-  } else {
-    selectElement.classList.add("incorrect");
-  }
-}
-
-// Page 2 functions
-document.querySelectorAll('#matching select').forEach(sel => {
-  sel.addEventListener('change', () => {
-    const correct = sel.getAttribute('data-answer');
-    sel.style.border = sel.value === correct ? '3px solid #28a745' : '3px solid #dc3545';
-  });
-});
-
-document.querySelectorAll('#fillblanks select').forEach(sel => {
-  sel.addEventListener('change', () => {
-    const correct = sel.getAttribute('data-answer');
-    sel.style.border = sel.value === correct ? '3px solid #28a745' : '3px solid #dc3545';
-  });
-});
-
-// Page 3 functions - Updated for immediate feedback
-const correctOptions = ['1','3','4','5','8'];
-let selectedCount = 0;
-
 function checkOption(checkbox) {
   const label = checkbox.parentElement;
   
-  // Reset all labels (optional)
-  document.querySelectorAll('.options label').forEach(l => {
-    l.style.border = 'none';
-    l.style.background = '';
-  });
-
-  // Immediate feedback for current selection
   if (checkbox.checked) {
-    selectedCount++;
     if (correctOptions.includes(checkbox.value)) {
       label.style.border = '2px solid #4CAF50';
       label.style.background = '#e8f5e9';
@@ -594,88 +556,10 @@ function checkOption(checkbox) {
       label.style.background = '#ffebee';
     }
   } else {
-    selectedCount--;
     label.style.border = 'none';
     label.style.background = '';
   }
-
-  // Disable other checkboxes if 5 are selected
-  if (selectedCount === 5) {
-    document.querySelectorAll('input[name="opt"]:not(:checked)').forEach(box => {
-      box.disabled = true;
-    });
-  } else {
-    document.querySelectorAll('input[name="opt"]').forEach(box => {
-      box.disabled = false;
-    });
-  }
-
-  // Update feedback message
-  const checkedBoxes = Array.from(document.querySelectorAll('input[name="opt"]:checked'));
-  const correctSelected = checkedBoxes.filter(box => correctOptions.includes(box.value)).length;
-  
-  document.getElementById('feedback').textContent = 
-    `Επιλέξατε ${correctSelected}/5 σωστές απαντήσεις.` + 
-    (selectedCount === 5 ? " (Έχετε φτάσει το όριο επιλογών)" : "");
-  document.getElementById('feedback').style.color = 
-    correctSelected === 5 ? 'green' : '#333';
 }
-
-// Page 4 functions
-function checkQuiz() {
-  const correctAnswers = ['1', '1', '1', '1', '1'];
-  let score = 0;
-  let allAnswered = true;
-
-  for (let i = 1; i <= 5; i++) {
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    if (!selected) {
-      allAnswered = false;
-      continue;
-    }
-    
-    const labels = document.querySelectorAll(`input[name="q${i}"]`);
-    labels.forEach(label => {
-      const parentLabel = label.parentElement;
-      parentLabel.style.backgroundColor = '';
-      parentLabel.style.border = '';
-      
-      if (label.checked) {
-        if (label.value === correctAnswers[i-1]) {
-          parentLabel.style.backgroundColor = '#e8f5e9';
-          parentLabel.style.border = '2px solid #4CAF50';
-          score++;
-        } else {
-          parentLabel.style.backgroundColor = '#ffebee';
-          parentLabel.style.border = '2px solid #f44336';
-        }
-      }
-    });
-  }
-
-  const feedback = document.getElementById('quizResult');
-  if (allAnswered) {
-    feedback.textContent = `Σωστές απαντήσεις: ${score}/5`;
-    feedback.style.color = score === 5 ? '#4CAF50' : '#f44336';
-  } else {
-    feedback.textContent = 'Παρακαλώ απαντήστε σε όλες τις ερωτήσεις.';
-    feedback.style.color = '#f44336';
-  }
-}
-
-function checkSelect(element, correctValue) {
-  if (element.value === correctValue) {
-    element.style.border = '2px solid #4CAF50';
-    element.style.backgroundColor = '#e8f5e9';
-  } else if (element.value) {
-    element.style.border = '2px solid #f44336';
-    element.style.backgroundColor = '#ffebee';
-  } else {
-    element.style.border = '1px solid #333';
-    element.style.backgroundColor = '';
-  }
-}
-</script>
 
 </body>
 </html>
