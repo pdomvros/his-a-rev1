@@ -570,50 +570,56 @@ document.querySelectorAll('#fillblanks select').forEach(sel => {
   });
 });
 
-// Page 3 functions
+// Page 3 functions - Updated for immediate feedback
 const correctOptions = ['1','3','4','5','8'];
+let selectedCount = 0;
+
 function checkOption(checkbox) {
-  const labels = document.querySelectorAll('.options label');
-  labels.forEach(label => {
+  const label = checkbox.parentElement;
+  
+  // Reset all labels (optional)
+  document.querySelectorAll('.options label').forEach(l => {
+    l.style.border = 'none';
+    l.style.background = '';
+  });
+
+  // Immediate feedback for current selection
+  if (checkbox.checked) {
+    selectedCount++;
+    if (correctOptions.includes(checkbox.value)) {
+      label.style.border = '2px solid #4CAF50';
+      label.style.background = '#e8f5e9';
+    } else {
+      label.style.border = '2px solid #f44336';
+      label.style.background = '#ffebee';
+    }
+  } else {
+    selectedCount--;
     label.style.border = 'none';
     label.style.background = '';
-  });
-  
-  const checkedBoxes = Array.from(document.querySelectorAll('input[name="opt"]:checked'));
-  if (checkedBoxes.length > 5) {
-    checkbox.checked = false;
-    document.getElementById('feedback').textContent = 'Μπορείτε να επιλέξετε μέχρι 5 προτάσεις μόνο.';
-    document.getElementById('feedback').style.color = 'red';
-    return;
   }
-  
-  checkedBoxes.forEach(box => {
-    const label = box.parentElement;
-    label.style.border = correctOptions.includes(box.value) ? '2px solid #4CAF50' : '2px solid #f44336';
-  });
-  
-  if (checkedBoxes.length === 5) {
-    const allCorrect = checkedBoxes.every(box => correctOptions.includes(box.value));
-    document.getElementById('feedback').textContent = allCorrect ? 
-      'Συγχαρητήρια! Επιλέξατε όλες τις σωστές απαντήσεις.' : 
-      'Κάποιες επιλογές είναι λανθασμένες. Ελέγξτε ξανά τις προτάσεις.';
-    document.getElementById('feedback').style.color = allCorrect ? 'green' : 'red';
-  } else {
-    document.getElementById('feedback').textContent = `Επιλέξτε ${5 - checkedBoxes.length} ακόμη προτάσεις.`;
-    document.getElementById('feedback').style.color = '#333';
-  }
-}
 
-document.querySelectorAll('.blanks select').forEach(sel => {
-  sel.addEventListener('change', () => {
-    const correct = sel.getAttribute('data-answer');
-    if (!sel.value) {
-      sel.style.border = '1px solid #333';
-      return;
-    }
-    sel.style.border = sel.value === correct ? '3px solid #28a745' : '3px solid #dc3545';
-  });
-});
+  // Disable other checkboxes if 5 are selected
+  if (selectedCount === 5) {
+    document.querySelectorAll('input[name="opt"]:not(:checked)').forEach(box => {
+      box.disabled = true;
+    });
+  } else {
+    document.querySelectorAll('input[name="opt"]').forEach(box => {
+      box.disabled = false;
+    });
+  }
+
+  // Update feedback message
+  const checkedBoxes = Array.from(document.querySelectorAll('input[name="opt"]:checked'));
+  const correctSelected = checkedBoxes.filter(box => correctOptions.includes(box.value)).length;
+  
+  document.getElementById('feedback').textContent = 
+    `Επιλέξατε ${correctSelected}/5 σωστές απαντήσεις.` + 
+    (selectedCount === 5 ? " (Έχετε φτάσει το όριο επιλογών)" : "");
+  document.getElementById('feedback').style.color = 
+    correctSelected === 5 ? 'green' : '#333';
+}
 
 // Page 4 functions
 function checkQuiz() {
