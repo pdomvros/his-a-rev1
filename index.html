@@ -23,16 +23,19 @@
     .dropdown {
       position: absolute;
       transform: translate(-50%, -50%);
+      border: 2px solid transparent;
     }
     select {
       padding: 5px;
       font-size: 14px;
     }
     .correct {
-      background-color: #c6f6c3;
+      border-color: #4CAF50;
+      background-color: #eaffea;
     }
     .incorrect {
-      background-color: #f7c6c6;
+      border-color: #f44336;
+      background-color: #ffecec;
     }
     button {
       margin-top: 20px;
@@ -48,78 +51,84 @@
 <div class="container">
   <img src="columns.png" alt="Ιωνικός και Δωρικός Ρυθμός - Καθαρή Εκδοχή">
 
-  <!-- Dropdowns για Ιωνικό ρυθμό -->
-  <select class="dropdown" style="top: 10%; left: 35%;">
-    <option>--Επιλογή--</option>
-    <option value="Γείσο">Γείσο</option>
-    <option value="Αέτωμα">Αέτωμα</option>
-    <option value="Ζωφόρος">Ζωφόρος</option>
+  <!-- Dropdown επιλογής ρυθμού -->
+  <select class="dropdown" style="top: 5%; left: 25%;">
+    <option>--Ρυθμός--</option>
+    <option value="Ιωνικός">Ιωνικός</option>
+    <option value="Δωρικός">Δωρικός</option>
   </select>
 
-  <select class="dropdown" style="top: 18%; left: 35%;">
-    <option>--Επιλογή--</option>
-    <option value="Ζωφόρος">Ζωφόρος</option>
-    <option value="Επιστύλιο">Επιστύλιο</option>
-    <option value="Κιονόκρανο">Κιονόκρανο</option>
+  <select class="dropdown" style="top: 5%; left: 75%;">
+    <option>--Ρυθμός--</option>
+    <option value="Ιωνικός">Ιωνικός</option>
+    <option value="Δωρικός">Δωρικός</option>
   </select>
 
-  <select class="dropdown" style="top: 28%; left: 35%;">
-    <option>--Επιλογή--</option>
-    <option value="Επιστύλιο">Επιστύλιο</option>
-    <option value="Κιονόκρανο">Κιονόκρανο</option>
-    <option value="Κίονας">Κίονας</option>
+  <!-- Ιωνικός ρυθμός -->
+  <select class="dropdown" style="top: 15%; left: 20%;">
+    <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
   </select>
 
-  <select class="dropdown" style="top: 45%; left: 35%;">
-    <option>--Επιλογή--</option>
-    <option value="Κίονας">Κίονας</option>
-    <option value="Βάση">Βάση</option>
-    <option value="Κρηπίδα">Κρηπίδα</option>
+  <select class="dropdown" style="top: 25%; left: 20%;">
+    <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option>
   </select>
 
-  <select class="dropdown" style="top: 65%; left: 35%;">
-    <option>--Επιλογή--</option>
-    <option value="Βάση">Βάση</option>
-    <option value="Κρηπίδα">Κρηπίδα</option>
-    <option value="Στυλοβάτης">Στυλοβάτης</option>
+  <select class="dropdown" style="top: 35%; left: 20%;">
+    <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
   </select>
 
-  <!-- Dropdowns για Δωρικό ρυθμό -->
-  <select class="dropdown" style="top: 10%; left: 65%;">
-    <option>--Επιλογή--</option>
-    <option value="Γείσο">Γείσο</option>
-    <option value="Αέτωμα">Αέτωμα</option>
-    <option value="Ζωφόρος">Ζωφόρος</option>
+  <select class="dropdown" style="top: 50%; left: 20%;">
+    <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option>
   </select>
 
-  <select class="dropdown" style="top: 20%; left: 65%;">
-    <option>--Επιλογή--</option>
-    <option value="Ζωφόρος">Ζωφόρος</option>
-    <option value="Τρίγλυφα">Τρίγλυφα</option>
-    <option value="Μετόπες">Μετόπες</option>
+  <select class="dropdown" style="top: 65%; left: 20%;">
+    <option>--Επιλογή--</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option>
   </select>
 
-  <select class="dropdown" style="top: 30%; left: 65%;">
-    <option>--Επιλογή--</option>
-    <option value="Επιστύλιο">Επιστύλιο</option>
-    <option value="Κιονόκρανο">Κιονόκρανο</option>
-    <option value="Κίονας">Κίονας</option>
+  <!-- Δωρικός ρυθμός -->
+  <select class="dropdown" style="top: 15%; left: 80%;">
+    <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
   </select>
 
-  <select class="dropdown" style="top: 47%; left: 65%;">
-    <option>--Επιλογή--</option>
-    <option value="Κίονας">Κίονας</option>
-    <option value="Βάση">Βάση</option>
-    <option value="Στυλοβάτης">Στυλοβάτης</option>
+  <select class="dropdown" style="top: 25%; left: 80%;">
+    <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Τρίγλυφα">Τρίγλυφα</option><option value="Μετόπες">Μετόπες</option>
   </select>
 
-  <select class="dropdown" style="top: 65%; left: 65%;">
-    <option>--Επιλογή--</option>
-    <option value="Κρηπίδα">Κρηπίδα</option>
-    <option value="Στυλοβάτης">Στυλοβάτης</option>
-    <option value="Βάση">Βάση</option>
+  <select class="dropdown" style="top: 35%; left: 80%;">
+    <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
+  </select>
+
+  <select class="dropdown" style="top: 50%; left: 80%;">
+    <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Στυλοβάτης">Στυλοβάτης</option>
+  </select>
+
+  <select class="dropdown" style="top: 65%; left: 80%;">
+    <option>--Επιλογή--</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Βάση">Βάση</option>
   </select>
 </div>
+
+<button onclick="checkAnswers()">Έλεγχος Απαντήσεων</button>
+
+<script>
+function checkAnswers() {
+  const correctAnswers = [
+    "Ιωνικός", "Δωρικός",
+    "Αέτωμα", "Ζωφόρος", "Επιστύλιο", "Κίονας", "Βάση",
+    "Αέτωμα", "Τρίγλυφα", "Κιονόκρανο", "Κίονας", "Στυλοβάτης"
+  ];
+
+  const selects = document.querySelectorAll("select");
+
+  selects.forEach((select, index) => {
+    select.classList.remove("correct", "incorrect");
+    if (select.value === correctAnswers[index]) {
+      select.classList.add("correct");
+    } else {
+      select.classList.add("incorrect");
+    }
+  });
+}
+</script>
 
 </body>
 </html>
