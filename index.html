@@ -290,21 +290,20 @@
     σε πολλούς και θα αλλάξουν την όψη της πόλης. Η πόλη της Αθηνάς θα μεταμορφωθεί.»</p>
   </div>
 
-  <h3>Επίλεξε τις 5 προτάσεις που δείχνουν γιατί ο Περικλής ήταν μεγάλος ηγέτης:</h3>
-  <form class="options">
-    <label><input type="checkbox" name="opt" value="1"> Ενίσχυσε τη συμμετοχή των φτωχών πολιτών με μισθό.</label>
-    <label><input type="checkbox" name="opt" value="2"> Κατάργησε τα δημόσια αξιώματα για μείωση δαπανών.</label>
-    <label><input type="checkbox" name="opt" value="3"> Υποστήριξε κοινωνική προστασία για τους άπορους.</label>
-    <label><input type="checkbox" name="opt" value="4"> Πλήρωσε το εισιτήριο των φτωχών για το θέατρο.</label>
-    <label><input type="checkbox" name="opt" value="5"> Υλοποίησε μεγάλα δημόσια έργα για απασχόληση.</label>
-    <label><input type="checkbox" name="opt" value="6"> Εξόρισε πολιτικούς αντιπάλους χωρίς δίκη.</label>
-    <label><input type="checkbox" name="opt" value="7"> Παρείχε οικονομική ενίσχυση μόνο στους πλούσιους.</label>
-    <label><input type="checkbox" name="opt" value="8"> Διατήρησε τη λειτουργία της δημοκρατίας χωρίς περιορισμούς.</label>
-    <label><input type="checkbox" name="opt" value="9"> Έχτισε εργοστάσια όπλων για στρατιωτική κυριαρχία.</label>
-    <label><input type="checkbox" name="opt" value="10"> Αλλοίωσε τα νομικά συστήματα προς όφελος της αριστοκρατίας.</label>
-  </form>
-  <button onclick="checkOptions()">Υποβολή</button>
-  <div id="feedback"></div>
+<h3>Επίλεξε τις 5 προτάσεις που δείχνουν γιατί ο Περικλής ήταν μεγάλος ηγέτης:</h3>
+<form class="options">
+  <label><input type="checkbox" name="opt" value="1" onchange="checkOption(this)"> Ενίσχυσε τη συμμετοχή των φτωχών πολιτών με μισθό.</label>
+  <label><input type="checkbox" name="opt" value="2" onchange="checkOption(this)"> Κατάργησε τα δημόσια αξιώματα για μείωση δαπανών.</label>
+  <label><input type="checkbox" name="opt" value="3" onchange="checkOption(this)"> Υποστήριξε κοινωνική προστασία για τους άπορους.</label>
+  <label><input type="checkbox" name="opt" value="4" onchange="checkOption(this)"> Πλήρωσε το εισιτήριο των φτωχών για το θέατρο.</label>
+  <label><input type="checkbox" name="opt" value="5" onchange="checkOption(this)"> Υλοποίησε μεγάλα δημόσια έργα για απασχόληση.</label>
+  <label><input type="checkbox" name="opt" value="6" onchange="checkOption(this)"> Εξόρισε πολιτικούς αντιπάλους χωρίς δίκη.</label>
+  <label><input type="checkbox" name="opt" value="7" onchange="checkOption(this)"> Παρείχε οικονομική ενίσχυση μόνο στους πλούσιους.</label>
+  <label><input type="checkbox" name="opt" value="8" onchange="checkOption(this)"> Διατήρησε τη λειτουργία της δημοκρατίας χωρίς περιορισμούς.</label>
+  <label><input type="checkbox" name="opt" value="9" onchange="checkOption(this)"> Έχτισε εργοστάσια όπλων για στρατιωτική κυριαρχία.</label>
+  <label><input type="checkbox" name="opt" value="10" onchange="checkOption(this)"> Αλλοίωσε τα νομικά συστήματα προς όφελος της αριστοκρατίας.</label>
+</form>
+<div id="feedback"></div>
 
   <h2>Συμπληρώστε τα κενά</h2>
   <form class="blanks">
@@ -606,21 +605,63 @@ document.querySelectorAll('.blanks select').forEach(sel => {
 });
 
 // Page 4 functions
+// Συνάρτηση για τα radio buttons (ερωτήσεις 1-5)
 function checkQuiz() {
   const correctAnswers = ['1', '1', '1', '1', '1'];
   let score = 0;
+  let allAnswered = true;
+
+  // Έλεγχος κάθε ερώτησης
   for (let i = 1; i <= 5; i++) {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    if (selected && selected.value === correctAnswers[i - 1]) score++;
+    if (!selected) {
+      allAnswered = false;
+      continue;
+    }
+    
+    // Άμεση οπτική ανατροφοδότηση
+    const labels = document.querySelectorAll(`input[name="q${i}"]`);
+    labels.forEach(label => {
+      const parentLabel = label.parentElement;
+      parentLabel.style.backgroundColor = '';
+      parentLabel.style.border = '';
+      
+      if (label.checked) {
+        if (label.value === correctAnswers[i-1]) {
+          parentLabel.style.backgroundColor = '#e8f5e9'; // Πράσινο
+          parentLabel.style.border = '2px solid #4CAF50';
+        } else {
+          parentLabel.style.backgroundColor = '#ffebee'; // Κόκκινο
+          parentLabel.style.border = '2px solid #f44336';
+        }
+      }
+    });
+
+    if (selected.value === correctAnswers[i-1]) score++;
   }
-  document.getElementById('quizResult').textContent = `Σωστές απαντήσεις: ${score}/5`;
+
+  // Εμφάνιση αποτελέσματος
+  const feedback = document.getElementById('feedback-quiz');
+  if (allAnswered) {
+    feedback.textContent = `Σωστές απαντήσεις: ${score}/5`;
+    feedback.style.color = score === 5 ? '#4CAF50' : '#f44336';
+  } else {
+    feedback.textContent = 'Παρακαλώ απαντήστε σε όλες τις ερωτήσεις.';
+    feedback.style.color = '#f44336';
+  }
 }
 
+// Συνάρτηση για dropdowns (αντιστοίχιση και συμπλήρωση κενών)
 function checkSelect(element, correctValue) {
   if (element.value === correctValue) {
-    element.style.border = "2px solid green";
+    element.style.border = '2px solid #4CAF50'; // Πράσινο
+    element.style.backgroundColor = '#e8f5e9';
+  } else if (element.value) {
+    element.style.border = '2px solid #f44336'; // Κόκκινο
+    element.style.backgroundColor = '#ffebee';
   } else {
-    element.style.border = "2px solid red";
+    element.style.border = '1px solid #333'; // Προεπιλογή
+    element.style.backgroundColor = '';
   }
 }
 </script>
