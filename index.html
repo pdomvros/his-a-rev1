@@ -11,10 +11,10 @@
       background-color: #fbf5ea;
       margin: 0;
       padding: 20px;
-      color: #333;
+      color: #fbf5ea;
     }
     h1, h2, h3, h4 {
-      color: #2c3e50;
+      color: #fbf5ea;
     }
     section {
       margin-bottom: 40px;
@@ -89,10 +89,12 @@
 
 <!-- Page 1 - Ιωνικός και Δωρικός Ρυθμός -->
 <section>
-  <h4>1ο Γυμνάσιο Πυλαίας<br>
-  Επανάληψη της Ιστορίας Α' Γυμνασίου<br>
-  Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
-  Διευθυντής 1ου Γυμνασίου Πυλαίας</h4>
+  <h4 style="text-align: center; font-size: 1.2em; color: #fbf5ea; margin: 20px 0;">
+    1ο Γυμνάσιο Πυλαίας<br>
+    Επανάληψη της Ιστορίας Α' Γυμνασίου<br>
+    Δημιουργία/Επιμέλεια: Παναγιώτης Δόμβρος (CC BY-NC)<br>
+    Διευθυντής 1ου Γυμνασίου Πυλαίας
+  </h4>
 
   <h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
 
@@ -569,27 +571,35 @@ document.querySelectorAll('#fillblanks select').forEach(sel => {
 
 // Page 3 functions
 const correctOptions = ['1','3','4','5','8'];
-function checkOptions() {
-  const selections = Array.from(document.querySelectorAll('input[name="opt"]:checked')).map(i => i.value);
+function checkOption(checkbox) {
   const labels = document.querySelectorAll('.options label');
   labels.forEach(label => {
     label.style.border = 'none';
     label.style.background = '';
   });
-  selections.forEach(val => {
-    const lbl = document.querySelector('input[value="'+val+'"]').parentElement;
-    lbl.style.border = correctOptions.includes(val) ? '3px solid #28a745' : '3px solid #dc3545';
+  
+  const checkedBoxes = Array.from(document.querySelectorAll('input[name="opt"]:checked'));
+  if (checkedBoxes.length > 5) {
+    checkbox.checked = false;
+    document.getElementById('feedback').textContent = 'Μπορείτε να επιλέξετε μέχρι 5 προτάσεις μόνο.';
+    document.getElementById('feedback').style.color = 'red';
+    return;
+  }
+  
+  checkedBoxes.forEach(box => {
+    const label = box.parentElement;
+    label.style.border = correctOptions.includes(box.value) ? '2px solid #4CAF50' : '2px solid #f44336';
   });
-  const fb = document.getElementById('feedback');
-  if (selections.length !== correctOptions.length) {
-    fb.textContent = 'Παρακαλώ επίλεξε ακριβώς 5 προτάσεις.';
-    fb.style.color = 'red';
-  } else if (selections.every(v => correctOptions.includes(v))) {
-    fb.textContent = 'Συγχαρητήρια! Επίλεξες όλες τις σωστές απαντήσεις.';
-    fb.style.color = 'green';
+  
+  if (checkedBoxes.length === 5) {
+    const allCorrect = checkedBoxes.every(box => correctOptions.includes(box.value));
+    document.getElementById('feedback').textContent = allCorrect ? 
+      'Συγχαρητήρια! Επιλέξατε όλες τις σωστές απαντήσεις.' : 
+      'Κάποιες επιλογές είναι λανθασμένες. Ελέγξτε ξανά τις προτάσεις.';
+    document.getElementById('feedback').style.color = allCorrect ? 'green' : 'red';
   } else {
-    fb.textContent = 'Κάποιες επιλογές είναι λανθασμένες. Κοίταξε ξανά τις προτάσεις.';
-    fb.style.color = 'red';
+    document.getElementById('feedback').textContent = `Επιλέξτε ${5 - checkedBoxes.length} ακόμη προτάσεις.`;
+    document.getElementById('feedback').style.color = '#333';
   }
 }
 
@@ -605,13 +615,11 @@ document.querySelectorAll('.blanks select').forEach(sel => {
 });
 
 // Page 4 functions
-// Συνάρτηση για τα radio buttons (ερωτήσεις 1-5)
 function checkQuiz() {
   const correctAnswers = ['1', '1', '1', '1', '1'];
   let score = 0;
   let allAnswered = true;
 
-  // Έλεγχος κάθε ερώτησης
   for (let i = 1; i <= 5; i++) {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
     if (!selected) {
@@ -619,7 +627,6 @@ function checkQuiz() {
       continue;
     }
     
-    // Άμεση οπτική ανατροφοδότηση
     const labels = document.querySelectorAll(`input[name="q${i}"]`);
     labels.forEach(label => {
       const parentLabel = label.parentElement;
@@ -628,20 +635,18 @@ function checkQuiz() {
       
       if (label.checked) {
         if (label.value === correctAnswers[i-1]) {
-          parentLabel.style.backgroundColor = '#e8f5e9'; // Πράσινο
+          parentLabel.style.backgroundColor = '#e8f5e9';
           parentLabel.style.border = '2px solid #4CAF50';
+          score++;
         } else {
-          parentLabel.style.backgroundColor = '#ffebee'; // Κόκκινο
+          parentLabel.style.backgroundColor = '#ffebee';
           parentLabel.style.border = '2px solid #f44336';
         }
       }
     });
-
-    if (selected.value === correctAnswers[i-1]) score++;
   }
 
-  // Εμφάνιση αποτελέσματος
-  const feedback = document.getElementById('feedback-quiz');
+  const feedback = document.getElementById('quizResult');
   if (allAnswered) {
     feedback.textContent = `Σωστές απαντήσεις: ${score}/5`;
     feedback.style.color = score === 5 ? '#4CAF50' : '#f44336';
@@ -651,16 +656,15 @@ function checkQuiz() {
   }
 }
 
-// Συνάρτηση για dropdowns (αντιστοίχιση και συμπλήρωση κενών)
 function checkSelect(element, correctValue) {
   if (element.value === correctValue) {
-    element.style.border = '2px solid #4CAF50'; // Πράσινο
+    element.style.border = '2px solid #4CAF50';
     element.style.backgroundColor = '#e8f5e9';
   } else if (element.value) {
-    element.style.border = '2px solid #f44336'; // Κόκκινο
+    element.style.border = '2px solid #f44336';
     element.style.backgroundColor = '#ffebee';
   } else {
-    element.style.border = '1px solid #333'; // Προεπιλογή
+    element.style.border = '1px solid #333';
     element.style.backgroundColor = '';
   }
 }
