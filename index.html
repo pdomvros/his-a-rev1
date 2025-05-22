@@ -14,20 +14,15 @@
       color: #333;
     }
 
-    /* ... υπόλοιπο CSS ... */
-
-    /* Μεγαλύτερη γραμματοσειρά στις ερωτήσεις (+40%) */
-    h2, h3, p:first-of-type, .matching-item label, .blanks label, .radio-option, .pericles-options label {
-      font-size: 1.4em;
-    }
-  </style>
-</head>
-
-
     h1, h2, h3, h4 {
       color: #2c3e50;
     }
-    
+
+    /* Ερώτηση: Αύξηση μεγέθους ερωτήσεων κατά 40% */
+    h2, h3, .matching-item label, .blanks label, .radio-option, .pericles-options label {
+      font-size: 1.4em;
+    }
+
     section {
       margin-bottom: 40px;
       padding: 20px;
@@ -35,8 +30,7 @@
       border-radius: 10px;
       background-color: #f9f9f9;
     }
-    
-    /* Page 1 styles - Ιωνικός και Δωρικός Ρυθμός */
+
     .container {
       position: relative;
       display: inline-block;
@@ -48,6 +42,7 @@
       height: 100%;
       display: block;
     }
+
     .dropdown {
       position: absolute;
       transform: translate(-50%, -50%);
@@ -65,62 +60,67 @@
       border-color: #f44336;
       background-color: #ffecec;
     }
-    
-    /* Page 2 and 3 styles - Συμμαχία Δήλου και Περικλής */
+
     .matching-item, .blanks p, .options label {
       margin: 10px 0;
     }
+
     .source {
       background: #fbf5ea;
       padding: 15px;
       margin-bottom: 20px;
     }
+
     .quiz-result, #feedback, #feedback-blanks {
       font-weight: bold;
       margin-top: 15px;
     }
-    
-    /* Page 4 styles - Αθηναϊκό πολίτευμα */
+
     select, input[type="text"], input[type="radio"] {
       padding: 5px;
       margin-top: 5px;
     }
+
     button {
       margin-top: 10px;
       padding: 5px 10px;
       cursor: pointer;
     }
+
     .feedback {
       border: 2px solid transparent;
       border-radius: 5px;
       padding: 4px;
     }
-    
-    /* New styles for immediate feedback */
+
     .radio-option {
       display: block;
       margin-bottom: 8px;
       padding: 5px;
       border-radius: 4px;
     }
+
     .correct-answer {
       background-color: #e8f5e9;
       border: 2px solid #4CAF50;
     }
+
     .wrong-answer {
       background-color: #ffebee;
       border: 2px solid #f44336;
     }
-    
-    /* Style for Pericles options */
+
     .pericles-options {
       display: flex;
       flex-direction: column;
     }
+
     .pericles-options label {
       margin-bottom: 10px;
     }
   </style>
+</head>
+
 </head>
 <body>
 
