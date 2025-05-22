@@ -687,6 +687,26 @@ function checkSelect(element, correctValue) {
   }
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const keywords = ["επιλογή", "επιλέξτε", "ρυθμός"];
+  const regex = new RegExp("\\b(" + keywords.join("|") + ")\\b", "gi");
+
+  function highlightKeywords(node) {
+    if (node.nodeType === 3 && regex.test(node.textContent)) {
+      const span = document.createElement("span");
+      span.innerHTML = node.textContent.replace(regex, match =>
+        `<strong style="color:#1a237e;">${match}</strong>`
+      );
+      node.parentNode.replaceChild(span, node);
+    } else if (node.nodeType === 1 && node.childNodes && !["SCRIPT", "STYLE"].includes(node.tagName)) {
+      node.childNodes.forEach(highlightKeywords);
+    }
+  }
+
+  highlightKeywords(document.body);
+});
+</script>
 
 </body>
 </html>
