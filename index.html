@@ -815,23 +815,51 @@ document.addEventListener("DOMContentLoaded", () => {
     <button type="button" onclick="checkAigesAnswers()" style="margin-top: 15px; padding: 10px 20px; font-weight: bold;">Υποβολή Απαντήσεων</button>
 
     <div id="aiges-result" style="margin-top: 20px; font-weight: bold;"></div>
+    <button id="myth-button" onclick="showMyth()" style="display:none; margin-top:15px; padding:10px 20px;">Διάβασε...</button>
   </form>
 </section>
+
+<!-- ✅ MODAL ΠΛΗΡΟΦΟΡΙΩΝ -->
+<div id="mythModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.7); z-index:1000;">
+  <div style="background:#fff; max-width:600px; margin:10% auto; padding:20px; border-radius:10px; position:relative;">
+    <button onclick="closeMyth()" style="position:absolute; top:10px; right:15px; font-size:18px;">✖</button>
+    <h2>🐐 Ο Μύθος της Αιγός Κεφαλής</h2>
+    <p>Σύμφωνα με τον θρύλο, όταν ο Περδίκκας Α΄, ο ιδρυτής της μακεδονικής δυναστείας των Τημενιδών, έφυγε από το Άργος και περιπλανιόταν για να βρει νέα πατρίδα, έλαβε χρησμό από ένα μαντείο (πιθανότατα των Δελφών):</p>
+    <blockquote>«Θα ιδρύσεις το βασίλειό σου εκεί όπου θα σε οδηγήσει μια κατσίκα.»</blockquote>
+    <p>Καθώς περπατούσε στους πρόποδες των Πιερίων, είδε ένα κοπάδι από κατσίκες να τρέχει προς μια πηγή. Μία από αυτές προπορευόταν και στάθηκε σε ένα ύψωμα. Ο Περδίκκας το θεώρησε θεϊκό σημάδι και ίδρυσε εκεί την πόλη:</p>
+    <p><strong>Αιγές</strong> = από τη λέξη <em>αίγα</em> (κατσίκα) ή <strong>Αιγός Κεφαλαί</strong> = δηλαδή «κεφάλια κατσίκας».</p>
+    <h3>🏛️ Ιστορική Σημασία</h3>
+    <ul>
+      <li>Πρώτη πρωτεύουσα του Μακεδονικού Βασιλείου</li>
+      <li>Έδρα του ανακτόρου του Φιλίππου Β΄</li>
+      <li>Εκεί βρέθηκαν οι βασιλικοί τάφοι, μεταξύ αυτών και του Φιλίππου Β΄</li>
+    </ul>
+  </div>
+</div>
 
 <script>
   function checkAigesAnswers() {
     let score = 0;
     for (let i = 1; i <= 5; i++) {
-      const radios = document.getElementsByName('q' + i);
-      for (let radio of radios) {
-        if (radio.checked && radio.value === "1") {
-          score++;
-        }
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
+      if (selected && selected.value === "1") {
+        score++;
       }
     }
     const result = document.getElementById('aiges-result');
     result.textContent = `Σωστές απαντήσεις: ${score} από 5`;
     result.style.color = score === 5 ? 'green' : 'darkred';
+
+    const mythBtn = document.getElementById('myth-button');
+    mythBtn.style.display = score === 5 ? 'inline-block' : 'none';
+  }
+
+  function showMyth() {
+    document.getElementById('mythModal').style.display = 'block';
+  }
+
+  function closeMyth() {
+    document.getElementById('mythModal').style.display = 'none';
   }
 </script>
 
