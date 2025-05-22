@@ -737,5 +737,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+  <section>
+  <h2>Ο Αλέξανδρος μέσα από την πηγή του Αρριανού</h2>
+
+  <div class="source">
+    <p><strong>«Ο Αλέξανδρος… έζησε τριάντα δύο χρόνια και οκτώ μήνες. Βασίλεψε δώδεκα χρόνια και οκτώ μήνες. Ξεχώριζε για τη φυσική ωραιότητα, την εργατικότητα, την εξυπνάδα, τη γενναιότητα, την ευσέβειά του, την αγάπη που έτρεφε για τις τιμές και την περιφρόνηση που έδειχνε στους κινδύνους. Εγκρατέστατος στις σωματικές απολαύσεις, ήταν ιδιαίτερα άπληστος για τους επαίνους. Μπορούσε να διακρίνει το σωστό, όταν ακόμη δεν είχε στοιχεία, αλλά και να βγάζει συμπεράσματα από τα γεγονότα που παρατηρούσε. Ήταν εξαίρετος στρατηγός˙ μπορούσε θαυμάσια να παρατάξει τη στρατιά του, να την εξοπλίσει και να την οργανώσει. Η παλικαριά του τον βοηθούσε να εξυψώνει το ηθικό των στρατιωτών του, να τους εμπνέει εμπιστοσύνη και με την αφοβία του να εξαφανίζει τους δικούς τους φόβους. Σεβόταν ιδιαίτερα τις συνθήκες και ήταν αδιάφθορος.»</p>
+    <p><em>Αρριανός, Αλεξάνδρου Ανάβασις, Ζ, 28 (Μετάφραση: Δ. Μόσχου)</em></p>
+  </div>
+
+  <h3 class="exercise-title">Ερώτηση: Ποια χαρακτηριστικά συνθέτουν τον ιδανικό στρατιωτικό ηγέτη, σύμφωνα με την παραπάνω πηγή;</h3>
+
+  <form class="pericles-options">
+    <label><input type="checkbox" name="alex" value="1" onchange="checkAlexander()"> Γενναιότητα και περιφρόνηση στους κινδύνους</label>
+    <label><input type="checkbox" name="alex" value="2" onchange="checkAlexander()"> Εξαιρετική στρατηγική ικανότητα</label>
+    <label><input type="checkbox" name="alex" value="3" onchange="checkAlexander()"> Απληστία για πλούτο</label>
+    <label><input type="checkbox" name="alex" value="4" onchange="checkAlexander()"> Σεβασμός στις συνθήκες και ακεραιότητα</label>
+    <label><input type="checkbox" name="alex" value="5" onchange="checkAlexander()"> Φυσική ωραιότητα και γοητεία</label>
+    <label><input type="checkbox" name="alex" value="6" onchange="checkAlexander()"> Εγκράτεια στις σωματικές απολαύσεις</label>
+    <label><input type="checkbox" name="alex" value="7" onchange="checkAlexander()"> Ικανότητα ανύψωσης του ηθικού των στρατιωτών</label>
+  </form>
+  <div id="alexander-feedback" style="margin-top: 15px; font-weight: bold;"></div>
+</section>
+
+<script>
+  function checkAlexander() {
+    const correct = ['1', '2', '4', '6', '7'];
+    const checkboxes = Array.from(document.querySelectorAll('input[name="alex"]:checked'));
+    const feedbackDiv = document.getElementById('alexander-feedback');
+
+    checkboxes.forEach(cb => {
+      cb.parentElement.style.border = correct.includes(cb.value) ? '2px solid #4CAF50' : '2px solid #f44336';
+      cb.parentElement.style.backgroundColor = correct.includes(cb.value) ? '#e8f5e9' : '#ffebee';
+    });
+
+    if (checkboxes.length === correct.length && checkboxes.every(cb => correct.includes(cb.value))) {
+      feedbackDiv.textContent = '✅ Μπράβο! Εντόπισες όλα τα βασικά χαρακτηριστικά του άριστου ηγέτη.';
+      feedbackDiv.style.color = 'green';
+    } else {
+      feedbackDiv.textContent = '❌ Προσπάθησε ξανά! Επίλεξε μόνο τα χαρακτηριστικά που αναδεικνύονται στην πηγή.';
+      feedbackDiv.style.color = 'red';
+    }
+  }
+</script>
+
 </body>
 </html>
