@@ -738,6 +738,174 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
   <section>
+  <h2>Quiz: Το κράτος της Μακεδονίας</h2>
+  <p>Απάντησε στις 20 ερωτήσεις και δες το σκορ σου!</p>
+
+  <div id="macedonia-quiz">
+    <div id="macedonia-score">Score: 0 / 20</div>
+    <div id="macedonia-question" class="exercise-title"></div>
+    <div id="macedonia-choices"></div>
+    <div id="macedonia-feedback" style="font-weight: bold; margin-top: 10px;"></div>
+  </div>
+</section>
+
+<script>
+  const macedoniaQuestions = [
+    {
+      question: "1) Ποια ήταν η πρώτη πρωτεύουσα του Μακεδονικού κράτους;",
+      choices: ["Πέλλα", "Αιγές", "Αμφίπολη"],
+      correctIndex: 1
+    },
+    {
+      question: "2) Ποιο ήταν το κύριο όπλο των Μακεδόνων στη φάλαγγα;",
+      choices: ["Ξίφος", "Σάρισσα (μακρύ δόρυ)", "Μέγα Δόρυ"],
+      correctIndex: 1
+    },
+    {
+      question: "3) Ποιος ρήτορας παρότρυνε τον Φίλιππο να ενώσει τους Έλληνες;",
+      choices: ["Ισοκράτης", "Δημοσθένης", "Λυσίας"],
+      correctIndex: 0
+    },
+    {
+      question: "4) Ποιος τραγικός ποιητής φιλοξενήθηκε στην αυλή του Αρχέλαου;",
+      choices: ["Αισχύλος", "Σοφοκλής", "Ευριπίδης"],
+      correctIndex: 2
+    },
+    {
+      question: "5) Ποια πόλη έγινε η νέα πρωτεύουσα επί βασιλείας Αρχέλαου;",
+      choices: ["Βέροια", "Πέλλα", "Αμφίπολη"],
+      correctIndex: 1
+    },
+    {
+      question: "6) Σε ποια μάχη το 338 π.Χ. ο Φίλιππος νίκησε τους Αθηναίους και Θηβαίους;",
+      choices: ["Μάχη του Μαραθώνα", "Μάχη της Χαιρώνειας", "Μάχη των Πλαταιών"],
+      correctIndex: 1
+    },
+    {
+      question: "7) Τι συνέβαινε στις Αιγές σε σχέση με τους βασιλείς;",
+      choices: ["Ήταν λιμάνι εμπορίου", "Εκεί ενταφιάζονταν οι βασιλείς", "Ήταν απλώς φρούριο"],
+      correctIndex: 1
+    },
+    {
+      question: "8) Ποιοι ήταν οι βόρειοι εχθροί των Μακεδόνων;",
+      choices: ["Ιλλυριοί και Παιόνες", "Θράκες και Πέρσες", "Σπαρτιάτες"],
+      correctIndex: 0
+    },
+    {
+      question: "9) Ποιον ελιγμό εφάρμοσε ο Φίλιππος στη φάλαγγα;",
+      choices: ["Λοξή φάλαγγα", "Κυκλική φάλαγγα", "Τετραγωνική φάλαγγα"],
+      correctIndex: 0
+    },
+    {
+      question: "10) Σε ποια πόλη αποφασίστηκε η εκστρατεία κατά των Περσών (337 π.Χ.);",
+      choices: ["Στην Κόρινθο", "Στη Θήβα", "Στην Αθήνα"],
+      correctIndex: 0
+    },
+    {
+      question: "11) Ποιος βασιλιάς δολοφονήθηκε το 336 π.Χ.;",
+      choices: ["Φίλιππος Β’", "Αλέξανδρος Α’", "Αρχέλαος"],
+      correctIndex: 0
+    },
+    {
+      question: "12) Ποιο ιερό κέντρο των Μακεδόνων ομοίαζε με την Ολυμπία;",
+      choices: ["Το Δίον", "Η Πέλλα", "Η Αθήνα"],
+      correctIndex: 0
+    },
+    {
+      question: "13) Ποιος φρόντισε για την αναδιοργάνωση του στρατού και του ιππικού στη Μακεδονία;",
+      choices: ["Ο Αλέξανδρος Α’", "Ο Φίλιππος Β’", "Ο Δημοσθένης"],
+      correctIndex: 1
+    },
+    {
+      question: "14) Τι προσέφερε στη νότια Ελλάδα η πολεμική ισχύς της Μακεδονίας;",
+      choices: ["Ενίσχυση στον περσικό στρατό", "Προστασία από βόρειους εχθρούς", "Περισσότερους εσωτερικούς πολέμους"],
+      correctIndex: 1
+    },
+    {
+      question: "15) Σε ποια ηλικία διακρίθηκε ο Αλέξανδρος στη μάχη της Χαιρώνειας;",
+      choices: ["18 ετών", "25 ετών", "16 ετών"],
+      correctIndex: 0
+    },
+    {
+      question: "16) Ποια ένδειξη επιβεβαίωνε την ελληνικότητα των Μακεδόνων;",
+      choices: ["Είσοδος στους Ολυμπιακούς Αγώνες", "Χρήση λατινικής γλώσσας", "Βαρβαρικά ονόματα"],
+      correctIndex: 0
+    },
+    {
+      question: "17) Ποια ήταν η προτροπή του Ισοκράτη προς τον Φίλιππο;",
+      choices: ["Να επιτεθεί στην Αθήνα", "Να ενώσει τους Έλληνες κατά των Περσών", "Να επιτεθεί στους Σπαρτιάτες"],
+      correctIndex: 1
+    },
+    {
+      question: "18) Από πού προμηθεύονταν οι Αθηναίοι ξυλεία για τα πλοία τους;",
+      choices: ["Τη Σικελία", "Τη Μακεδονία", "Την Αίγυπτο"],
+      correctIndex: 1
+    },
+    {
+      question: "19) Ποιο είναι το δυνατό στοιχείο της μακεδονικής φάλαγγας;",
+      choices: ["Ο ελαφρύς εξοπλισμός", "Η μακριά σάρισσα", "Η κυκλική διάταξη"],
+      correctIndex: 1
+    },
+    {
+      question: "20) Ποιος ανέβηκε στον θρόνο μετά τη δολοφονία του Φιλίππου;",
+      choices: ["Ο Μέγας Αλέξανδρος", "Ο Άτταλος", "Ο Αριστοτέλης"],
+      correctIndex: 0
+    }
+  ];
+
+  let macedoniaCurrent = 0;
+  let macedoniaScore = 0;
+  const macedoniaTotal = macedoniaQuestions.length;
+
+  function renderMacedoniaQuestion() {
+    const container = document.getElementById('macedonia-quiz');
+    const qBox = document.getElementById('macedonia-question');
+    const cBox = document.getElementById('macedonia-choices');
+    const feedback = document.getElementById('macedonia-feedback');
+    const scoreBox = document.getElementById('macedonia-score');
+
+    if (macedoniaCurrent >= macedoniaTotal) {
+      qBox.textContent = "Ολοκληρώθηκαν όλες οι ερωτήσεις!";
+      cBox.innerHTML = "";
+      feedback.textContent = `Τελικό σκορ: ${macedoniaScore} / ${macedoniaTotal} 🎉`;
+      return;
+    }
+
+    const q = macedoniaQuestions[macedoniaCurrent];
+    qBox.textContent = q.question;
+    cBox.innerHTML = q.choices.map((choice, i) =>
+      `<button class="choice-btn" onclick="checkMacedoniaAnswer(${i})">${choice}</button>`
+    ).join('');
+    feedback.textContent = "";
+    scoreBox.textContent = `Score: ${macedoniaScore} / ${macedoniaTotal}`;
+  }
+
+  function checkMacedoniaAnswer(choiceIndex) {
+    const q = macedoniaQuestions[macedoniaCurrent];
+    const feedback = document.getElementById('macedonia-feedback');
+
+    if (choiceIndex === q.correctIndex) {
+      feedback.textContent = "✅ Σωστά!";
+      feedback.style.color = "green";
+      macedoniaScore++;
+    } else {
+      feedback.textContent = `❌ Λάθος! Η σωστή απάντηση είναι: ${q.choices[q.correctIndex]}`;
+      feedback.style.color = "red";
+    }
+
+    document.getElementById('macedonia-score').textContent = `Score: ${macedoniaScore} / ${macedoniaTotal}`;
+
+    setTimeout(() => {
+      macedoniaCurrent++;
+      renderMacedoniaQuestion();
+    }, 2000);
+  }
+
+  renderMacedoniaQuestion();
+</script>
+
+  
+  <section>
   <h2>Ο Αλέξανδρος μέσα από την πηγή του Αρριανού</h2>
 
   <div class="source">
