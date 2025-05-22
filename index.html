@@ -152,71 +152,104 @@ section {
   Διευθυντής 1ου Γυμνασίου Πυλαίας
 </h4>
 
+<h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
 
-  <h2>Αναγνώρισε τα Αρχιτεκτονικά Στοιχεία και τον Ρυθμό</h2>
+<div class="container">
+  <img src="columns.png" alt="Ιωνικός και Δωρικός Ρυθμός - Καθαρή Εκδοχή">
 
-  <div class="container">
-    <img src="columns.png" alt="Ιωνικός και Δωρικός Ρυθμός - Καθαρή Εκδοχή">
+  <!-- Πρώτη στήλη (αριστερή) -->
+  <select class="dropdown" style="top: 5%; left: 45%;" onchange="checkImmediate(this, 'Ιωνικός')">
+    <option>--Ρυθμός--</option>
+    <option value="Ιωνικός">Ιωνικός</option>
+    <option value="Δωρικός">Δωρικός</option>
+  </select>
 
-    <!-- Παράδειγμα ενός dropdown με feedback -->
-    <select class="dropdown" style="top: 5%; left: 45%;" onchange="checkImmediate(this, 'Ιωνικός')">
-      <option>--Ρυθμός--</option>
-      <option value="Ιωνικός">Ιωνικός</option>
-      <option value="Δωρικός">Δωρικός</option>
-    </select>
+  <select class="dropdown" style="top: 18%; left: 42%;" onchange="checkImmediate(this, 'Αέτωμα')">
+    <option>--Επιλογή--</option>
+    <option value="Αέτωμα">Αέτωμα</option>
+    <option value="Γείσο">Γείσο</option>
+    <option value="Ζωφόρος">Ζωφόρος</option>
+  </select>
 
-    <select class="dropdown" style="top: 5%; left: 55%;" onchange="checkImmediate(this, 'Δωρικός')">
-      <option>--Ρυθμός--</option>
-      <option value="Ιωνικός">Ιωνικός</option>
-      <option value="Δωρικός">Δωρικός</option>
-    </select>
+  <select class="dropdown" style="top: 30%; left: 42%;" onchange="checkImmediate(this, 'Ζωφόρος')">
+    <option>--Επιλογή--</option>
+    <option value="Ζωφόρος">Ζωφόρος</option>
+    <option value="Επιστύλιο">Επιστύλιο</option>
+    <option value="Κιονόκρανο">Κιονόκρανο</option>
+  </select>
 
-    <select class="dropdown" style="top: 18%; left: 42%;" onchange="checkImmediate(this, 'Αέτωμα')">
-      <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
-    </select>
+  <select class="dropdown" style="top: 42%; left: 42%;" onchange="checkImmediate(this, 'Επιστύλιο')">
+    <option>--Επιλογή--</option>
+    <option value="Επιστύλιο">Επιστύλιο</option>
+    <option value="Κιονόκρανο">Κιονόκρανο</option>
+    <option value="Κίονας">Κίονας</option>
+  </select>
 
-    <select class="dropdown" style="top: 30%; left: 42%;" onchange="checkImmediate(this, 'Ζωφόρος')">
-      <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option>
-    </select>
+  <select class="dropdown" style="top: 57%; left: 42%;" onchange="checkImmediate(this, 'Κίονας')">
+    <option>--Επιλογή--</option>
+    <option value="Κίονας">Κίονας</option>
+    <option value="Βάση">Βάση</option>
+    <option value="Κρηπίδα">Κρηπίδα</option>
+  </select>
 
-    <select class="dropdown" style="top: 42%; left: 42%;" onchange="checkImmediate(this, 'Επιστύλιο')">
-      <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
-    </select>
+  <select class="dropdown" style="top: 90%; left: 42%;" onchange="checkImmediate(this, 'Βάση')">
+    <option>--Επιλογή--</option>
+    <option value="Βάση">Βάση</option>
+    <option value="Κρηπίδα">Κρηπίδα</option>
+    <option value="Στυλοβάτης">Στυλοβάτης</option>
+  </select>
 
-    <select class="dropdown" style="top: 57%; left: 42%;" onchange="checkImmediate(this, 'Κίονας')">
-      <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Κρηπίδα">Κρηπίδα</option>
-    </select>
+  <select class="dropdown" style="top: 96%; left: 42%;" onchange="checkImmediate(this, 'Κρηπίδα')">
+    <option>--Επιλογή--</option>
+    <option value="Κρηπίδα">Κρηπίδα</option>
+    <option value="Στυλοβάτης">Στυλοβάτης</option>
+    <option value="Βάση">Βάση</option>
+  </select>
 
-    <select class="dropdown" style="top: 90%; left: 42%;" onchange="checkImmediate(this, 'Βάση')">
-<select class="dropdown" style="top: 96%; left: 42%;" onchange="checkImmediate(this, 'Κρηπίδα')">
+  <!-- Δεύτερη στήλη (δεξιά) -->
+  <select class="dropdown" style="top: 5%; left: 55%;" onchange="checkImmediate(this, 'Δωρικός')">
+    <option>--Ρυθμός--</option>
+    <option value="Ιωνικός">Ιωνικός</option>
+    <option value="Δωρικός">Δωρικός</option>
+  </select>
 
+  <select class="dropdown" style="top: 18%; left: 58%;" onchange="checkImmediate(this, 'Αέτωμα')">
+    <option>--Επιλογή--</option>
+    <option value="Αέτωμα">Αέτωμα</option>
+    <option value="Γείσο">Γείσο</option>
+    <option value="Ζωφόρος">Ζωφόρος</option>
+  </select>
 
-    <select class="dropdown" style="top: 96%; left: 42%;" onchange="checkImmediate(this, 'Στυλοβάτης')">
-      <option>--Επιλογή--</option><option value="Στυλοβάτης">Στυλοβάτης</option><option value="Κρηπίδα">Κρηπίδα</option><option value="Βάση">Βάση</option>
-    </select>
+  <select class="dropdown" style="top: 30%; left: 58%;" onchange="checkImmediate(this, 'Τρίγλυφα')">
+    <option>--Επιλογή--</option>
+    <option value="Ζωφόρος">Ζωφόρος</option>
+    <option value="Τρίγλυφα">Τρίγλυφα</option>
+    <option value="Μετόπες">Μετόπες</option>
+  </select>
 
-    <select class="dropdown" style="top: 18%; left: 58%;" onchange="checkImmediate(this, 'Αέτωμα')">
-      <option>--Επιλογή--</option><option value="Αέτωμα">Αέτωμα</option><option value="Γείσο">Γείσο</option><option value="Ζωφόρος">Ζωφόρος</option>
-    </select>
+  <select class="dropdown" style="top: 42%; left: 58%;" onchange="checkImmediate(this, 'Κιονόκρανο')">
+    <option>--Επιλογή--</option>
+    <option value="Επιστύλιο">Επιστύλιο</option>
+    <option value="Κιονόκρανο">Κιονόκρανο</option>
+    <option value="Κίονας">Κίονας</option>
+  </select>
 
-    <select class="dropdown" style="top: 30%; left: 58%;" onchange="checkImmediate(this, 'Τρίγλυφα')">
-      <option>--Επιλογή--</option><option value="Ζωφόρος">Ζωφόρος</option><option value="Τρίγλυφα">Τρίγλυφα</option><option value="Μετόπες">Μετόπες</option>
-    </select>
+  <select class="dropdown" style="top: 57%; left: 58%;" onchange="checkImmediate(this, 'Κίονας')">
+    <option>--Επιλογή--</option>
+    <option value="Κίονας">Κίονας</option>
+    <option value="Βάση">Βάση</option>
+    <option value="Στυλοβάτης">Στυλοβάτης</option>
+  </select>
 
-    <select class="dropdown" style="top: 42%; left: 58%;" onchange="checkImmediate(this, 'Κιονόκρανο')">
-      <option>--Επιλογή--</option><option value="Επιστύλιο">Επιστύλιο</option><option value="Κιονόκρανο">Κιονόκρανο</option><option value="Κίονας">Κίονας</option>
-    </select>
+  <select class="dropdown" style="top: 96%; left: 58%;" onchange="checkImmediate(this, 'Κρηπίδα')">
+    <option>--Επιλογή--</option>
+    <option value="Κρηπίδα">Κρηπίδα</option>
+    <option value="Στυλοβάτης">Στυλοβάτης</option>
+    <option value="Βάση">Βάση</option>
+  </select>
+</div>
+</section>
 
-    <select class="dropdown" style="top: 57%; left: 58%;" onchange="checkImmediate(this, 'Κίονας')">
-      <option>--Επιλογή--</option><option value="Κίονας">Κίονας</option><option value="Βάση">Βάση</option><option value="Στυλοβάτης">Στυλοβάτης</option>
-    </select>
-
-<select class="dropdown" style="top: 96%; left: 58%;" onchange="checkImmediate(this, 'Κρηπίδα')">
-  <option>--Επιλογή--</option>
-  <option value="Κρηπίδα">Κρηπίδα</option>
-  <option value="Στυλοβάτης">Στυλοβάτης</option>
-  <option value="Βάση">Βάση</option>
-</select>
 
 
 <!-- Page 2 - Η συμμαχία της Δήλου όργανο της Αθηναϊκής Ηγεμονίας -->
